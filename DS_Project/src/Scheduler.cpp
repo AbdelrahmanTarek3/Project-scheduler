@@ -16,7 +16,24 @@ void Scheduler::openfile()
 	input.open(inputname, ios::in);
 	if (input.is_open() == true)
 	{
-
+		processordata();
 	}
 	input.close();
 }
+
+void Scheduler::processordata()
+{
+	input >> FCFSN >> SJFN >> RRN >> TS >> RTF >> MAXW >> STL >> FP;
+}
+
+void Scheduler::processesdata()
+{
+	Process* pointerr;
+	input >> NP;
+	for (int i = 0; i < NP; i++)
+	{
+		input >> AT >> PID >> CT >> NIO;
+		pointerr = new Process(AT, PID, CT, NIO);
+	}
+}
+

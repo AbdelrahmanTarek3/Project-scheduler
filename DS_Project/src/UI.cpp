@@ -19,20 +19,20 @@ void UI::startscreen()
 	cin >> filee;
 	setfile(filee);
 	
-	cout << "Thanks for your patience,";
-	cout << endl << "Your file name is : " << filename << " and the print mode is : ";
-	if (mode == 1)
-	{
-		cout << "Interactive Mode";
-	}
-	else if (mode == 2)
-	{
-		cout << "Step By Step Mode";
-	}
-	else
-	{
-		cout << "Silent Mode";
-	}
+	//cout << "Thanks for your patience,";
+	//cout << endl << "Your file name is : " << filename << " and the print mode is : ";
+	//if (mode == 1)
+	//{
+	//	cout << "Interactive Mode";
+	//}
+	//else if (mode == 2)
+	//{
+	//	cout << "Step By Step Mode";
+	//}
+	//else
+	//{
+	//	cout << "Silent Mode";
+	//}
 	cout << endl;
 	printscreen();
 }

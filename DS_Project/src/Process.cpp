@@ -1,4 +1,18 @@
 #include "Process.h"
+using namespace std;
+
+Process::Process()
+{
+
+}
+
+Process::Process(int pid, int at, int rt, int ct)
+{
+    setPID(pid);
+    setAT(at);
+    setRT(rt);
+    setCT(ct);
+}
 
 void Process::setPID(int i)
 {
