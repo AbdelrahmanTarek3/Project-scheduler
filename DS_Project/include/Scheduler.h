@@ -6,7 +6,7 @@
 # include "LinkedQueue.h"
 # include "PriorityQueueArray.h"
 # include "QueueADT.h"
-//# include "Processor.h"
+# include "Processor.h"
 # include "Process.h"
 
 using namespace std;
@@ -25,7 +25,10 @@ private:
 	LinkedQueue <Process*> blocked;
 	LinkedQueue <Process*> terminate;
 	LinkedQueue <Process*> ready;
-	
+	PriorityQueueArray<Processor*> FCFS;
+	PriorityQueueArray<Processor*>RR;
+	PriorityQueueArray<Processor*>SJF;
+
 public:
 	void simulate();
 	void openfile();
