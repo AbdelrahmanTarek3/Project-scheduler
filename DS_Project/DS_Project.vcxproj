@@ -142,8 +142,10 @@
     <ClInclude Include="include\StackADT.h" />
     <ClInclude Include="include\LinkedList.h" />
     <ClInclude Include="include\UI.h" />
+    <ClInclude Include="Processor.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Processor.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Process.cpp" />
     <ClCompile Include="src\Scheduler.cpp" />

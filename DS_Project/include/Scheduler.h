@@ -6,7 +6,9 @@
 # include "LinkedQueue.h"
 # include "PriorityQueueArray.h"
 # include "QueueADT.h"
+//# include "Processor.h"
 # include "Process.h"
+
 using namespace std;
 
 class Scheduler
@@ -23,7 +25,7 @@ private:
 	LinkedQueue <Process*> blocked;
 	LinkedQueue <Process*> terminate;
 	LinkedQueue <Process*> ready;
-
+	
 public:
 	void simulate();
 	void openfile();
