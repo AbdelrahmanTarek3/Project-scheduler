@@ -4,6 +4,11 @@ using namespace std;
 # include "Scheduler.h"
 # include <fstream>
 
+Scheduler::Scheduler()
+{
+
+}
+
 void Scheduler::simulate()
 {
 
@@ -18,6 +23,7 @@ void Scheduler::simulate()
 	points->startscreen();
 	openfile();
 }
+
 
 void Scheduler::openfile()
 {
@@ -35,20 +41,20 @@ void Scheduler::processordata()
 {
 	input >> FCFSN >> SJFN >> RRN >> TS >> RTF >> MAXW >> STL >> FP;
 	Processor* pointer;
-	for (int i = 1; i <= FCFSN; i++)
-	{
-		pointer = new Processor(i, RTF, MAXW, STL, FP);
-		FCFS.enqueue(pointer,0);
-	}
-	for (int i = 1; i <= SJFN; i++)
-	{
-		pointer = new Processor(i, RTF, MAXW, STL, FP);
-		SJF.enqueue(pointer, 0);
-	}
-	for (int i = 1; i <= RRN; i++)
-	{
+	//for (int i = 1; i <= FCFSN; i++)
+	//{
+	//	pointer = new Processor(i, RTF, MAXW, STL, FP);
+	//	FCFS.enqueue(pointer,0);
+	//}
+	//for (int i = 1; i <= SJFN; i++)
+	//{
+	//	pointer = new Processor(i, RTF, MAXW, STL, FP);
+	//	SJF.enqueue(pointer, 0);
+	//}
+	//for (int i = 1; i <= RRN; i++)
+	//{
 
-	}
+	//}
 }
 void Scheduler::processesdata()
 {
