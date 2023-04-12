@@ -6,6 +6,15 @@ using namespace std;
 
 void Scheduler::simulate()
 {
+
+	int i = 1;
+	//while (i != 0)	
+	//{
+
+
+	//	i++;
+	//}
+
 	points->startscreen();
 	openfile();
 }
@@ -17,6 +26,7 @@ void Scheduler::openfile()
 	if (input.is_open() == true)
 	{
 		processordata();
+		processesdata();
 	}
 	input.close();
 }
@@ -34,6 +44,15 @@ void Scheduler::processesdata()
 	{
 		input >> AT >> PID >> CT >> NIO;
 		pointerr = new Process(AT, PID, CT, NIO);
+		newprocesses.enqueue(pointerr);
+		newprocesses.peek(pointerr);
+		if (NIO != 0)
+		{
+			for (int j = 0; j < NIO; j++)
+			{
+
+			}
+		}
 	}
 }
 

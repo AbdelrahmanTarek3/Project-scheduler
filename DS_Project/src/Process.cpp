@@ -6,7 +6,7 @@ Process::Process()
 
 }
 
-Process::Process(int pid, int at, int rt, int ct)
+Process::Process(int at, int pid, int rt, int ct)
 {
     setPID(pid);
     setAT(at);

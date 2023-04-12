@@ -14,11 +14,15 @@ class Scheduler
 private:
 	UI* points = new UI;
 	ifstream input;
-	LinkedQueue <Process*> allprocesses;
-	int FCFSN, SJFN, RRN;
+	int FCFSN, SJFN, RRN, TOTALprocessors;
 	int TS;
 	int RTF, MAXW, STL, FP;
 	int NP, AT, PID, CT, NIO;
+
+	LinkedQueue <Process*> newprocesses;
+	LinkedQueue <Process*> blocked;
+	LinkedQueue <Process*> terminate;
+	LinkedQueue <Process*> ready;
 
 public:
 	void simulate();

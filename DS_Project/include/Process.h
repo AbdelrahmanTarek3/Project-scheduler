@@ -2,12 +2,13 @@
 class Process
 {
 private:
-	int PID, AT,RT,CT,TT,TRT,WT,IO_number,remaining_time;
+	int PID, AT, RT, CT, TT, TRT, WT;
+	int IO_number, remaining_time;
 	
 	Process* next;
 public:
 	Process();
-	Process(int pid, int ar, int rt, int ct);
+	Process(int at, int pid, int rt, int ct);
 	
 	void setPID(int i);
 	int getPID();
