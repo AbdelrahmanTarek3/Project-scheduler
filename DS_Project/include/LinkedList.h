@@ -139,7 +139,7 @@ public:
 	}
 	//[4] DeleteFirst
 
-	void LinkedList<T>::DeleteFirst()
+	void DeleteFirst()
 	{
 		if (Head == NULL)
 		{
@@ -154,7 +154,7 @@ public:
 
 	//[5] DeleteLast
 
-	void LinkedList<T>::DeleteLast()
+	void DeleteLast()
 	{
 		if (Head == NULL)
 		{
@@ -185,7 +185,7 @@ public:
 
 	//[6] DeleteNode
 
-	bool LinkedList<T>::DeleteNode(const T& value)
+	bool DeleteNode(const T& value)
 	{
 		if (Head == NULL)
 		{
@@ -222,7 +222,7 @@ public:
 
 	//[7] DeleteNodes
 
-	bool LinkedList<T>::DeleteNodes(const T& value)
+	bool DeleteNodes(const T& value)
 	{
 		if (Head == NULL)
 		{
@@ -265,7 +265,7 @@ public:
 
 	//[8] Merge
 
-	void LinkedList<T>::Merge(const LinkedList& L)
+	void Merge(const LinkedList& L)
 	{
 		if (L.Head == NULL)
 		{
@@ -291,7 +291,7 @@ public:
 
 	//[9] Reverse
 
-	void LinkedList<T>::Reverse()
+	void Reverse()
 	{
 		Node<T>* prev = NULL;
 		Node<T>* current = Head;

@@ -41,16 +41,16 @@ void Scheduler::processordata()
 {
 	input >> FCFSN >> SJFN >> RRN >> TS >> RTF >> MAXW >> STL >> FP;
 	Processor* pointer;
-	//for (int i = 1; i <= FCFSN; i++)
-	//{
-	//	pointer = new Processor(i, RTF, MAXW, STL, FP);
-	//	FCFS.enqueue(pointer,0);
-	//}
-	//for (int i = 1; i <= SJFN; i++)
-	//{
-	//	pointer = new Processor(i, RTF, MAXW, STL, FP);
-	//	SJF.enqueue(pointer, 0);
-	//}
+	for (int i = 1; i <= FCFSN; i++)
+	{
+		pointer = new Processor(i, RTF, MAXW, STL, FP);
+		FCFS.enqueue(pointer,0);
+	}
+	for (int i = 1; i <= SJFN; i++)
+	{
+		pointer = new Processor(i, RTF, MAXW, STL, FP);
+		SJF.enqueue(pointer, 0);
+	}
 	//for (int i = 1; i <= RRN; i++)
 	//{
 

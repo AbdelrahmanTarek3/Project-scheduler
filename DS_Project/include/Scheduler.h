@@ -8,6 +8,7 @@
 # include "QueueADT.h"
 # include "Processor.h"
 # include "Process.h"
+# include "LinkedList.h"
 using namespace std;
 
 class Scheduler
@@ -24,9 +25,11 @@ private:
 	LinkedQueue <Process*> blocked;
 	LinkedQueue <Process*> terminate;
 	LinkedQueue <Process*> ready;
-	//PriorityQueueArray<Processor*> FCFS;
-	//PriorityQueueArray<Processor*>RR;
-	//PriorityQueueArray<Processor*>SJF;
+	LinkedList <Process*> orphan;
+	PriorityQueueArray<Processor*> FCFS;
+	PriorityQueueArray<Processor*>RR;
+	PriorityQueueArray<Processor*>SJF;
+	
 
 public:
 	Scheduler();

@@ -11,6 +11,7 @@ private:
 public:
     // Constructor and Destructor
     PriorityQueueArray(int capacity);
+    PriorityQueueArray();
     ~PriorityQueueArray();
 
     // Queue operations
@@ -29,6 +30,12 @@ PriorityQueueArray<T>::PriorityQueueArray(int capacity)
     items = new T[capacity];
     priorities = new int[capacity];
     count = 0;
+}
+
+template <typename T>
+PriorityQueueArray<T>::PriorityQueueArray()
+{
+
 }
 
 // Destructor
