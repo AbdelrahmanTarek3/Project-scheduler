@@ -1,7 +1,7 @@
 # include <iostream>
 using namespace std;
 # include <string>
-# include "Scheduler.h"
+# include "../include/Scheduler.h"
 # include <fstream>
 
 Scheduler::Scheduler()

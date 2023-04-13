@@ -1,4 +1,4 @@
-#include "Process.h"
+#include"../include/Process.h"
 using namespace std;
 
 Process::Process()
@@ -104,13 +104,13 @@ int Process::getremaining_time()
     return remaining_time;
 }
 
-void Process::setnext(Process* ptr)
-{
-    next = ptr;
-}
-
-Process* Process::getnext()
-{
-    return next;
-}
+//void Process::setnext(Process* ptr)
+//{
+//    next = ptr;
+//}
+//
+//Process* Process::getnext()
+//{
+//    return next;
+//}
 

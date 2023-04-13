@@ -36,11 +36,6 @@ public:
 	
 	void setremaining_time(int rt);
 	int getremaining_time();
-	
-	void setnext(Process *ptr);
-	Process* getnext();
-
-
 
 };
 
