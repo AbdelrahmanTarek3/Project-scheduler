@@ -16,6 +16,7 @@ void Scheduler::simulate()
 	Process* p1;
 	Processor* pp;
 	int i = 1;
+	points->setcheck(check);
 	points->startscreen();
 	openfile();
 	int count = 0;

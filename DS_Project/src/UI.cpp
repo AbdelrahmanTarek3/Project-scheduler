@@ -3,6 +3,12 @@
 # include <string>
 # include "../include/UI.h"
 # include <Windows.h>
+
+UI::UI()
+{
+	setmode(1);
+}
+
 void UI::startscreen()
 {
 	//std::cout << std::endl << "					Welcome to the super processor" << std::endl << std::endl;
@@ -73,9 +79,25 @@ void UI::stepbystep()
 	Sleep(1000);
 }
 
+void UI::setcheck(LinkedList <Processor*> check)
+{
+	this->check = check;
+}
+
 void UI::interactive()
 {
+	
+	std::cout << "Current Timestep:70" << std::endl;
+	std::cout << "------------- RDY Processes -------------" << std::endl;
 
+	std::cout << "------------- BLK Processes -------------" << std::endl;
+
+	std::cout << "------------- RUN Processes -------------" << std::endl;
+
+	std::cout << "------------- TRM Processes -------------" << std::endl;
+
+	std::cout << "PRESS ANY KEY TO MOVE TO NEXT STEP !" << std::endl;
+    std::cin.get();
 }
 
 void UI::silent()
