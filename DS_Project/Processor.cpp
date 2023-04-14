@@ -77,7 +77,14 @@ int Processor::gettotal()
 
 void Processor::setready(Process* p2)
 {
-	ready.InsertBeg(p2);
+	if (ready.isEmpty() == true)
+	{
+		ready.InsertBeg(p2);
+	}
+	else
+	{
+		ready.InsertEnd(p2);
+	}
 }
 
 Process* Processor::getready()
@@ -96,4 +103,11 @@ int Processor::getpid()
 	return processid;
 }
 
+void Processor::readydel()
+{
+	if (ready.isEmpty() == false)
+	{
+		ready.DeleteFirst();
+	}
+}
 

@@ -23,6 +23,7 @@ public:
 	void setSTL(int stl);
 	void setFP(int fp);
 	void settotal(int t);
+	void readydel();
 
 	int getpid();
 	int getID();

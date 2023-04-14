@@ -19,7 +19,7 @@ void Scheduler::simulate()
 	points->startscreen();
 	openfile();
 	int count = 0;
-	while (newprocesses.isEmpty() == false)	
+	while (terminate.getcount() == NP)
 	{
 		while (newprocesses.peek(p1) && p1->getAT() == i)
 		{
@@ -58,9 +58,33 @@ void Scheduler::simulate()
 				{
 					srand(time(0));
 					int random = ((rand() % (100 + 1)));
-					check.InsertEnd(pp);
-					check.DeleteFirst();
+					if (random >= 1 && random <= 15)
+					{
+						blocked.enqueue(pp->getready());
+						pp->readydel();
+						check.DeleteFirst();
+					}
+					else if (random >= 20 && random <= 30)
+					{
+						pp->setpid(0);
+						check.DeleteFirst();
+					}
+					else if (random >= 50 && random <= 60)
+					{
+						terminate.enqueue(pp->getready());
+						pp->readydel();
+						check.DeleteFirst();
+					}
 				}
+			}
+		}
+		if (blocked.peek(p1))
+		{
+			srand(time(0));
+			int random = ((rand() % (100 + 1)));
+			if (random < 10)
+			{
+
 			}
 		}
 
