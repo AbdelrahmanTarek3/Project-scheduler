@@ -1,39 +1,45 @@
 # include <iostream>
-using namespace std;
+// using namespace std;
 # include <string>
-# include "UI.h"
+# include "../include/UI.h"
 # include <Windows.h>
+
+UI::UI()
+{
+	setmode(1);
+}
+
 void UI::startscreen()
 {
-	//cout << endl << "					Welcome to the super processor" << endl << endl;
+	//std::cout << std::endl << "					Welcome to the super processor" << std::endl << std::endl;
 	//int n;
-	//cout << "Please choose the printing mode you want by writing its number only: " << endl;
-	//cout << "1.Interactive Mode       2.Step By Step Mode               3.Silent Mode" << endl;
-	//cout << "Number: ";
-	//cin >> n;
-	//cout << endl;
+	//std::cout << "Please choose the printing mode you want by writing its number only: " << std::endl;
+	//std::cout << "1.Interactive Mode       2.Step By Step Mode               3.Silent Mode" << std::endl;
+	//std::cout << "Number: ";
+	//std::cin >> n;
+	//std::cout << std::endl;
 	//setmode(n);
 
-	cout << "Please enter the input file of your data in the following format (filename.txt): ";
-	string filee;
-	cin >> filee;
+	std::cout << "Please enter the input file of your data in the following format (filename.txt): ";
+	std::string filee;
+	std::cin >> filee;
 	setfile(filee);
 	
-	//cout << "Thanks for your patience,";
-	//cout << endl << "Your file name is : " << filename << " and the print mode is : ";
+	//std::cout << "Thanks for your patience,";
+	//std::cout << std::endl << "Your file name is : " << filename << " and the print mode is : ";
 	//if (mode == 1)
 	//{
-	//	cout << "Interactive Mode";
+	//	std::cout << "Interactive Mode";
 	//}
 	//else if (mode == 2)
 	//{
-	//	cout << "Step By Step Mode";
+	//	std::cout << "Step By Step Mode";
 	//}
 	//else
 	//{
-	//	cout << "Silent Mode";
+	//	std::cout << "Silent Mode";
 	//}
-	cout << endl;
+	std::cout << std::endl;
 	printscreen();
 }
 
@@ -58,12 +64,12 @@ void UI::setmode(int ss)
 	mode = ss;
 }
 
-void UI::setfile(string file)
+void UI::setfile(std::string file)
 {
 	filename = file;
 }
 
-string UI::getfile()
+std::string UI::getfile()
 {
 	return filename;
 }
@@ -73,20 +79,36 @@ void UI::stepbystep()
 	Sleep(1000);
 }
 
+void UI::setcheck(LinkedList <Processor*> check)
+{
+	this->check = check;
+}
+
 void UI::interactive()
 {
+	
+	std::cout << "Current Timestep:70" << std::endl;
+	std::cout << "------------- RDY Processes -------------" << std::endl;
 
+	std::cout << "------------- BLK Processes -------------" << std::endl;
+
+	std::cout << "------------- RUN Processes -------------" << std::endl;
+
+	std::cout << "------------- TRM Processes -------------" << std::endl;
+
+	std::cout << "PRESS ANY KEY TO MOVE TO NEXT STEP !" << std::endl;
+    std::cin.get();
 }
 
 void UI::silent()
 {
-	cout << "Silent Mode.........	Simulation Starts..." << endl;
-	cout << "Simulation ends, Output file created" << endl;
+	std::cout << "Silent Mode.........	Simulation Starts..." << std::endl;
+	std::cout << "Simulation ends, Output file created" << std::endl;
 }
 
 void UI::detectenter()
 {
-	cin.get() == '\n';
+	std::cin.get() == '\n';
 }
 
 

@@ -42,7 +42,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v142</PlatformToolset>
+    <PlatformToolset>v143</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
@@ -108,7 +108,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\usama\source\repos\Project-scheduler\DS_Project;C:\Users\usama\source\repos\Project-scheduler\DS_Project\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -133,24 +133,30 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="include\ArrayStack.h" />
+    <ClInclude Include="include\FCFS.h" />
     <ClInclude Include="include\LinkedQueue.h" />
     <ClInclude Include="include\Node.h" />
     <ClInclude Include="include\PriorityQueue.h" />
     <ClInclude Include="include\PriorityQueueADT.h" />
     <ClInclude Include="include\PriorityQueueArray.h" />
     <ClInclude Include="include\Process.h" />
+    <ClInclude Include="include\Processor.h" />
     <ClInclude Include="include\QueueADT.h" />
+    <ClInclude Include="include\RR.h" />
     <ClInclude Include="include\Scheduler.h" />
+    <ClInclude Include="include\SJF.h" />
     <ClInclude Include="include\StackADT.h" />
     <ClInclude Include="include\LinkedList.h" />
     <ClInclude Include="include\UI.h" />
-    <ClInclude Include="Processor.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Processor.cpp" />
+    <ClCompile Include="src\FCFS.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Process.cpp" />
+    <ClCompile Include="src\Processor.cpp" />
+    <ClCompile Include="src\RR.cpp" />
     <ClCompile Include="src\Scheduler.cpp" />
+    <ClCompile Include="src\SJF.cpp" />
     <ClCompile Include="src\UI.cpp" />
   </ItemGroup>
   <ItemGroup>

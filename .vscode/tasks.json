@@ -1,0 +1,22 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+        {
+            "label": "Build C++",
+            "type": "shell",
+            "command": "C:/msys64/mingw64/bin/g++.exe",
+            "args": [
+                "-g",
+                "-Wall",
+                "-I${workspaceFolder}/DS_Project/include",
+                "${workspaceFolder}/DS_Project/src/*.cpp",
+                "-o",
+                "${workspaceFolder}/DS_Project/x64/main.exe"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}

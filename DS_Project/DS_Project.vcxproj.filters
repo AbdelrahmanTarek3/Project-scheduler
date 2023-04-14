@@ -45,13 +45,22 @@
     <ClInclude Include="include\PriorityQueueArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Processor.h">
+    <ClInclude Include="include\Processor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\PriorityQueue.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\PriorityQueueADT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\FCFS.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SJF.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\RR.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -68,7 +77,16 @@
     <ClCompile Include="src\UI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Processor.cpp">
+    <ClCompile Include="src\Processor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FCFS.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SJF.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RR.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

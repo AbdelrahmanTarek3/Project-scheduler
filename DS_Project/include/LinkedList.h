@@ -1,7 +1,7 @@
 #pragma once
 #include "Node.h"
 #include <iostream>
-using namespace std;
+// using namespace std;
 
 template <typename T>
 class LinkedList
@@ -30,16 +30,16 @@ public:
 	*/
 	void PrintList()	const
 	{
-		cout << "\nprinting list contents:\n\n";
+		std::cout << "\nprinting list contents:\n\n";
 		Node<T>* p = Head;
 
 		while (p)
 		{
-			cout << "[ " << p->getItem() << " ]";
-			cout << "--->";
+			std::cout << "[ " << p->getItem() << " ]";
+			std::cout << "--->";
 			p = p->getNext();
 		}
-		cout << "NULL\n";
+		std::cout << "NULL\n";
 	}
 	////////////////////////////////////////////////////////////////////////
 	/*

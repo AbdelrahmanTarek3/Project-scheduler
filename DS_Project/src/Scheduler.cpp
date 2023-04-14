@@ -1,5 +1,5 @@
 # include <iostream>
-using namespace std;
+// using namespace std;
 # include <string>
 # include "Scheduler.h"
 # include <fstream>
@@ -16,6 +16,7 @@ void Scheduler::simulate()
 	Process* p1;
 	Processor* pp;
 	int i = 1;
+	points->setcheck(check);
 	points->startscreen();
 	openfile();
 	int count = 0;
@@ -119,8 +120,8 @@ void Scheduler::simulate()
 
 void Scheduler::openfile()
 {
-	string inputname = points->getfile();
-	input.open(inputname, ios::in);
+	std::string inputname = points->getfile();
+	input.open(inputname, std::ios::in);
 	if (input.is_open() == true)
 	{
 		processordata();

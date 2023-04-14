@@ -1,5 +1,5 @@
 #pragma once
-using namespace std;
+// using namespace std;
 # include "LinkedList.h"
 # include "Process.h"
 
@@ -9,14 +9,13 @@ private:
 	int ID, RTF, MaxW, STL, FP;
 	int totalCT;	
 	int processid = 0;
-	LinkedList <Process*> ready;
 	Process* p1;
 public:
 	Processor();
 	Processor(int id, int rtf, int maxw, int stl, int fp);
 
 	void setpid(int idd);
-	void setready(Process* p2);
+	virtual void setready(Process* p2) = 0;// the setready pure virtual
 	void setID(int id);
 	void setRTF(int rtf);
 	void setMaxW(int max);
@@ -24,6 +23,7 @@ public:
 	void setFP(int fp);
 	void settotal(int t, int op);
 	void readydel();
+	virtual void ScheduleAlgo() = 0; // added the pure virtual function
 
 	int getpid();
 	int getID();
