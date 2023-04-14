@@ -13,8 +13,8 @@ public:
 	RR(int id, int rtf, int maxw, int stl, int fp, int TimeSlice);
 	RR();
 	~RR();
-	int setTimeSlice(int TimeSlice);
-	void getTimeSlice();
+	void setTimeSlice(int TimeSlice);
+	int getTimeSlice();
 	virtual void ScheduleAlgo();
 	void setready(Process* p1);
 };
