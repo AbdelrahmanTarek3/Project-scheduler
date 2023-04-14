@@ -35,7 +35,11 @@ PriorityQueueArray<T>::PriorityQueueArray(int capacity)
 template <typename T>
 PriorityQueueArray<T>::PriorityQueueArray()
 {
-
+    capacity = 10;
+    this->capacity = capacity;
+    items = new T[15];
+    priorities = new int[15];
+    count = 0;
 }
 
 // Destructor
@@ -124,4 +128,5 @@ bool PriorityQueueArray<T>::peek(T& FrontEntry) const
     // Retrieve the item with the highest priority
     FrontEntry = items[count - 1];
     return true;
+
 }

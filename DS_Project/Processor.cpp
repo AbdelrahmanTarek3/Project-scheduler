@@ -75,7 +75,25 @@ int Processor::gettotal()
 	return totalCT;
 }
 
+void Processor::setready(Process* p2)
+{
+	ready.InsertBeg(p2);
+}
 
+Process* Processor::getready()
+{
+	ready.peekFront(p1);
+	return p1;
+}
 
+void Processor::setpid(int idd)
+{
+	processid = idd;
+}
+
+int Processor::getpid()
+{
+	return processid;
+}
 
 

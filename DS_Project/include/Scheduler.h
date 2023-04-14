@@ -24,9 +24,9 @@ private:
 	LinkedQueue <Process*> newprocesses;
 	LinkedQueue <Process*> blocked;
 	LinkedQueue <Process*> terminate;
-	LinkedQueue <Process*> ready;
 	LinkedList <Process*> orphan;
-	PriorityQueueArray<Processor*> FCFS;
+	LinkedList <Processor*> check;
+	PriorityQueueArray<Processor*>FCFS;
 	PriorityQueueArray<Processor*>RR;
 	PriorityQueueArray<Processor*>SJF;
 	
