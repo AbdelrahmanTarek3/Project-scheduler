@@ -5,10 +5,22 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "C++ Run",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/DS_Project/x64/main.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/DS_Project",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb"
+        },
+        {
             "name": "C++ Debug",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/DS_Project/bin/main.exe",
+            "program": "${workspaceFolder}/DS_Project/x64/main.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}/DS_Project",
