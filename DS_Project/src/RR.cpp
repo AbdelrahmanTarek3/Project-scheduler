@@ -16,6 +16,15 @@ RR::~RR()
 {
 
 }
+void RR::setTimeSlice(int TimeSlice) 
+{
+	this->TimeSlice = TimeSlice;
+}
+
+int RR:: getTimeSlice()
+{
+	return TimeSlice;
+}
 
 void RR::setready(Process* px)
 {
