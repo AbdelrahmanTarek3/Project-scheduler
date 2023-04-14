@@ -9,21 +9,42 @@ private:
     int capacity; 
 
 public:
-  
-   PriorityQueueArray(int capacity)
-    {
-        this->capacity = capacity;
-        items = new T[capacity];
-        priorities = new int[capacity];
-        count = 0;
-    }
+    // Constructor and Destructor
+    PriorityQueueArray(int capacity);
+    PriorityQueueArray();
+    ~PriorityQueueArray();
 
+    // Queue operations
+    bool isEmpty() const;
+    bool isFull() const;
+    bool enqueue(const T& newEntry, int priority);
+    bool dequeue(T& FrontEntry);
+    bool peek(T& FrontEntry) const;
+};
 
-    ~PriorityQueueArray()
-    {
-        delete[] items;
-        delete[] priorities;
-    }
+// Constructor
+template <typename T>
+PriorityQueueArray<T>::PriorityQueueArray(int capacity)
+{
+    this->capacity = capacity;
+    items = new T[capacity];
+    priorities = new int[capacity];
+    count = 0;
+}
+
+template <typename T>
+PriorityQueueArray<T>::PriorityQueueArray()
+{
+
+}
+
+// Destructor
+template <typename T>
+PriorityQueueArray<T>::~PriorityQueueArray()
+{
+    delete[] items;
+    delete[] priorities;
+}
 
   
     bool isEmpty() const
