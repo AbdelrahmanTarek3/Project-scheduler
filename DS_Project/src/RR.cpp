@@ -22,6 +22,7 @@ RR::~RR()
 {
 
 }
+
 void RR::setTimeSlice(int TimeSlice) 
 {
 	this->TimeSlice = TimeSlice;
@@ -42,9 +43,5 @@ void RR::ScheduleAlgo()
 	ready.dequeue(*&run); 
 }
 
-//void RR::setTimeSlice(int tt)
-//{
-//	TimeSlice = tt;
-//}
 
 

@@ -5,6 +5,7 @@
 # include <fstream>
 # include "Processor.h"
 # include <cstdlib>
+# include "FCFS.h"
 
 Scheduler::Scheduler()
 {
@@ -20,30 +21,30 @@ void Scheduler::simulate()
 	points->startscreen();
 	openfile();
 	int count = 0;
+
+
 	while (terminate.getcount() != NP)
 	{
 		while (newprocesses.peek(p1) && p1->getAT() == i)
 		{
-			if (FCFSN != 0)
+			if (TOTALprocessors != 0)
 			{
-				FCFS.peek(pp);
+				processors.peek(pp);
 				pp->setready(p1);
-				pp->settotal(p1->getCT(),1);
-				FCFS.dequeue(pp);
-				FCFS.enqueue(pp, pp->gettotal());
-				check.InsertBeg(pp);
+				pp->settotal(p1->getCT(), 1);
+				processors.dequeue(pp);
+				processors.enqueue(pp, pp->gettotal());			
+				if (check.isEmpty() == true)
+				{
+					check.InsertBeg(pp);
+				}
+				else
+				{
+					check.InsertEnd(pp);
+				}
 				newprocesses.dequeue(p1);
 			}
-			else if (SJFN != 0)
-			{
-				SJF.peek(pp);
-				pp->setready(p1);
-				pp->settotal(p1->getCT(),1);
-				SJF.dequeue(pp);
-				SJF.enqueue(pp, pp->gettotal());
-				check.InsertBeg(pp);
-				newprocesses.dequeue(p1);
-			}
+
 		}
 		if (check.isEmpty() == false)
 		{
@@ -134,23 +135,25 @@ void Scheduler::processordata()
 {
 	input >> FCFSN >> SJFN >> RRN >> TS >> RTF >> MAXW >> STL >> FP;
 	Processor* pointer;
-	Processor* p3;
+	TOTALprocessors = FCFSN + SJFN + RRN;
+
 	for (int i = 1; i <= FCFSN; i++)
 	{
-		pointer = new Processor(i, RTF, MAXW, STL, FP);
-		FCFS.enqueue(pointer,0);
-		FCFS.peek(p3);
+		pointer = new FCFS(i, RTF, MAXW, STL, FP);
+		processors.enqueue(pointer,0);
 	}
 	for (int i = FCFSN; i <= (SJFN+FCFSN); i++)
 	{
-		pointer = new Processor(i, RTF, MAXW, STL, FP);
-		SJF.enqueue(pointer, 0);
+		pointer = new SJF(i, RTF, MAXW, STL, FP);
+		processors.enqueue(pointer, 0);
 	}
-	//for (int i = 1; i <= RRN; i++)
-	//{
-
-	//}
+	for (int i = (SJFN + FCFSN); i <= (SJFN + FCFSN + RRN); i++)
+	{
+		pointer = new RR(i, RTF, MAXW, STL, FP, TS);
+		processors.enqueue(pointer, 0);
+	}
 }
+
 void Scheduler::processesdata()
 {
 	Process* pointerr;

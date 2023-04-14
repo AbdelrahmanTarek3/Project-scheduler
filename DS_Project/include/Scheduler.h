@@ -9,6 +9,9 @@
 # include "Process.h"
 # include "LinkedList.h"
 # include "PriorityQueue.h"
+# include "RR.h"
+# include "FCFS.h"
+# include "SJF.h"
 // using namespace std;
 
 class Scheduler
@@ -21,15 +24,15 @@ private:
 	int RTF, MAXW, STL, FP;
 	int NP, AT, PID, CT, NIO;
 
-	LinkedQueue <Process*> newprocesses;
-	LinkedQueue <Process*> blocked;
-	LinkedQueue <Process*> terminate;
-	LinkedList <Process*> orphan;
+	LinkedQueue <Process*> newprocesses;		//done
+	PriorityQueue <Process*> blocked;			//key is finishing time
+	LinkedQueue <Process*> terminate;		//done
+	LinkedList <Process*> orphan;			//done
+
 	LinkedList <Processor*> check;
-	PriorityQueue<Processor*>FCFS;
-	PriorityQueue<Processor*>RR;
-	PriorityQueue<Processor*>SJF;
-	//PriorityQueue <Process*>ss;
+	
+	PriorityQueue<Processor*>processors;
+
 
 public:
 	Scheduler();
