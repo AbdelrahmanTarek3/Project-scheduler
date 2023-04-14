@@ -5,12 +5,12 @@ class FCFS : public Processor
 {
 private:
 	LinkedList <Process*> ready;
-	LinkedList <Process*> run;
+	Process* run;
 
 public:
 
 	FCFS(int id, int rtf, int maxw, int stl, int fp);
-	FCFS() {}
+	FCFS();
 	~FCFS();
 	virtual void ScheduleAlgo();
 	void SetReady(Process* p1);

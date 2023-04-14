@@ -9,14 +9,13 @@ private:
 	int ID, RTF, MaxW, STL, FP;
 	int totalCT;
 	int processid = 0;
-	LinkedList <Process*> ready;
 	Process* p1;
 public:
 	Processor();
 	Processor(int id, int rtf, int maxw, int stl, int fp);
 
 	void setpid(int idd);
-	void setready(Process* p2);
+	virtual void setready(Process* p2) = 0;// the setready pure virtual
 	void setID(int id);
 	void setRTF(int rtf);
 	void setMaxW(int max);

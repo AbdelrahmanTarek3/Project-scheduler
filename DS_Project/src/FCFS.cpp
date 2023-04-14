@@ -12,9 +12,11 @@ FCFS::FCFS(int id, int rtf, int maxw, int stl, int fp)
 
 }
 FCFS::~FCFS()
-{}
+{
 
-void SetReady(Process* px)
+}
+
+void FCFS::SetReady(Process* px)
 {
 	
 	if(ready.isEmpty() == true)
@@ -29,9 +31,6 @@ void SetReady(Process* px)
 
 void FCFS::ScheduleAlgo()
 {
-	LinkedList <Process*> run;
- 
-	ready.peekFront(item)
-
+	ready.peekFront(*&run); // should we peek and then delete?
 }
 
