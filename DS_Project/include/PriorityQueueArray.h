@@ -3,10 +3,10 @@
 template <typename T>
 class PriorityQueueArray {
 private:
-    T* items; 
-    int* priorities; 
-    int count; 
-    int capacity; 
+    T* items; // Array of items in the priority queue
+    int* priorities; // Array of priorities of the items
+    int count; // Current count of queue items
+    int capacity; // Capacity of the queue array
 
 public:
     // Constructor and Destructor
@@ -35,7 +35,11 @@ PriorityQueueArray<T>::PriorityQueueArray(int capacity)
 template <typename T>
 PriorityQueueArray<T>::PriorityQueueArray()
 {
-
+    capacity = 10;
+    this->capacity = capacity;
+    items = new T[15];
+    priorities = new int[15];
+    count = 0;
 }
 
 // Destructor
@@ -46,80 +50,83 @@ PriorityQueueArray<T>::~PriorityQueueArray()
     delete[] priorities;
 }
 
-  
-    bool isEmpty() const
+// Check if the priority queue is empty
+template <typename T>
+bool PriorityQueueArray<T>::isEmpty() const
+{
+    return count == 0;
+}
+
+// Check if the priority queue is full
+template <typename T>
+bool PriorityQueueArray<T>::isFull() const
+{
+    return count == capacity;
+}
+
+// Add a new item to the priority queue based on its priority
+template <typename T>
+bool PriorityQueueArray<T>::enqueue(const T& newEntry, int priority)
+{
+    if (isFull()) // If the queue is full, cannot enqueue
     {
-        return count == 0;
+        return false;
     }
 
- 
-    bool isFull() const
-    {
-        return count == capacity;
-    }
+    // Add the new item and its priority to the end of the arrays
+    items[count] = newEntry;
+    priorities[count] = priority;
+    count++;
 
-
-    bool enqueue(const T& newEntry, int priority)
+    // Sort the arrays in descending order of priority
+    for (int i = count - 1; i > 0; i--)
     {
-        if (isFull()) 
+        if (priorities[i] > priorities[i - 1])
         {
-            return false;
+            // Swap the items and priorities
+            T tempItem = items[i];
+            int tempPriority = priorities[i];
+            items[i] = items[i - 1];
+            priorities[i] = priorities[i - 1];
+            items[i - 1] = tempItem;
+            priorities[i - 1] = tempPriority;
         }
-
-        // Add the new item and its priority to the end of the arrays
-        items[count] = newEntry;
-        priorities[count] = priority;
-        count++;
-
-        // Sort the arrays in descending order of priority
-        for (int i = count - 1; i > 0; i--)
+        else
         {
-            if (priorities[i] > priorities[i - 1])
-            {
-                // Swap the items and priorities
-                T tempItem = items[i];
-                int tempPriority = priorities[i];
-                items[i] = items[i - 1];
-                priorities[i] = priorities[i - 1];
-                items[i - 1] = tempItem;
-                priorities[i - 1] = tempPriority;
-            }
-            else
-            {
-                break;
-            }
+            break;
         }
-
-        return true;
     }
 
- 
-    bool dequeue(T& FrontEntry)
+    return true;
+}
+
+// Remove and retrieve the item with the highest priority from the priority queue
+template <typename T>
+bool PriorityQueueArray<T>::dequeue(T& FrontEntry)
+{
+    if (isEmpty()) // If the queue is empty, cannot dequeue
     {
-        if (isEmpty()) 
-        {
-            return false;
-        }
-
-        // Retrieve the item with the highest priority
-        FrontEntry = items[count - 1];
-        count--;
-
-        return true;
+        return false;
     }
 
-    // Retrieve the item with the highest priority from the priority queue without removing it
-    bool peek(T& FrontEntry) const
+    // Retrieve the item with the highest priority
+    FrontEntry = items[count - 1];
+    count--;
+
+    return true;
+}
+
+// Retrieve the item with the highest priority from the priority queue without removing it
+template <typename T>
+bool PriorityQueueArray<T>::peek(T& FrontEntry) const
+{
+    if (isEmpty()) // If the queue is empty, cannot peek
     {
-        if (isEmpty()) // If the queue is empty, cannot peek
-        {
-            return false;
-        }
-
-        // Retrieve the item with the highest priority
-        FrontEntry = items[count - 1];
-        return true;
+        return false;
     }
 
-};
+    // Retrieve the item with the highest priority
+    FrontEntry = items[count - 1];
+    return true;
 
+}

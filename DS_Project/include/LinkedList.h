@@ -7,6 +7,7 @@ template <typename T>
 class LinkedList
 {
 private:
+	int count = 0;
 	Node<T>* Head;	//Pointer to the head of the list
 	//You can add tail pointer too (depending on your problem)
 public:
@@ -50,10 +51,11 @@ public:
 	*/
 	void InsertBeg(const T& data)
 	{
-		Node<T>* R = new Node<T>(data);
+		Node<T>* R = new Node<T>;
+		R->setItem(data);
 		R->setNext(Head);
 		Head = R;
-
+		count++;
 	}
 	////////////////////////////////////////////////////////////////////////
 	/*
@@ -69,6 +71,7 @@ public:
 			delete Head;
 			Head = P;
 		}
+		count = 0;
 	}
 
 
@@ -95,7 +98,7 @@ public:
 		}
 		p->setNext(R);
 		R->setNext(NULL);
-
+		count++;
 	}
 
 	//[2]Find 
@@ -149,6 +152,7 @@ public:
 		Node<T>* p = Head;
 		Head = Head->getNext();
 		delete p;
+		count--;
 	}
 
 
@@ -180,6 +184,7 @@ public:
 		}
 
 		delete p;
+		count--;
 	}
 
 
@@ -306,5 +311,18 @@ public:
 		}
 
 		Head = prev;
+	}
+
+	bool isEmpty()
+	{
+		return count == 0;
+	}
+
+	bool peekFront(T& item)
+	{
+		if (isEmpty())
+			return false;
+		item = Head->getItem();
+		return true;
 	}
 };
