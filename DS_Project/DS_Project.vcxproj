@@ -135,6 +135,8 @@
     <ClInclude Include="include\ArrayStack.h" />
     <ClInclude Include="include\LinkedQueue.h" />
     <ClInclude Include="include\Node.h" />
+    <ClInclude Include="include\PriorityQueue.h" />
+    <ClInclude Include="include\PriorityQueueADT.h" />
     <ClInclude Include="include\PriorityQueueArray.h" />
     <ClInclude Include="include\Process.h" />
     <ClInclude Include="include\QueueADT.h" />

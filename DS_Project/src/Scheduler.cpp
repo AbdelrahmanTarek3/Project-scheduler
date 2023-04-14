@@ -94,12 +94,10 @@ void Scheduler::processordata()
 		FCFS.enqueue(pointer,0);
 		FCFS.peek(p3);
 	}
-	for (int i = 1; i <= SJFN; i++)
+	for (int i = FCFSN; i <= (SJFN+FCFSN); i++)
 	{
 		pointer = new Processor(i, RTF, MAXW, STL, FP);
 		SJF.enqueue(pointer, 0);
-		FCFS.dequeue(pointer);
-
 	}
 	//for (int i = 1; i <= RRN; i++)
 	//{

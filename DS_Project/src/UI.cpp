@@ -5,14 +5,14 @@ using namespace std;
 # include <Windows.h>
 void UI::startscreen()
 {
-	cout << endl << "					Welcome to the super processor" << endl << endl;
-	int n;
-	cout << "Please choose the printing mode you want by writing its number only: " << endl;
-	cout << "1.Interactive Mode       2.Step By Step Mode               3.Silent Mode" << endl;
-	cout << "Number: ";
-	cin >> n;
-	cout << endl;
-	setmode(n);
+	//cout << endl << "					Welcome to the super processor" << endl << endl;
+	//int n;
+	//cout << "Please choose the printing mode you want by writing its number only: " << endl;
+	//cout << "1.Interactive Mode       2.Step By Step Mode               3.Silent Mode" << endl;
+	//cout << "Number: ";
+	//cin >> n;
+	//cout << endl;
+	//setmode(n);
 
 	cout << "Please enter the input file of your data in the following format (filename.txt): ";
 	string filee;

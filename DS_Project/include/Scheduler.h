@@ -4,11 +4,11 @@
 # include "UI.h"
 # include <fstream>
 # include "LinkedQueue.h"
-# include "PriorityQueueArray.h"
 # include "QueueADT.h"
 # include "Processor.h"
 # include "Process.h"
 # include "LinkedList.h"
+# include "PriorityQueue.h"
 using namespace std;
 
 class Scheduler
@@ -26,10 +26,10 @@ private:
 	LinkedQueue <Process*> terminate;
 	LinkedList <Process*> orphan;
 	LinkedList <Processor*> check;
-	PriorityQueueArray<Processor*>FCFS;
-	PriorityQueueArray<Processor*>RR;
-	PriorityQueueArray<Processor*>SJF;
-	
+	PriorityQueue<Processor*>FCFS;
+	PriorityQueue<Processor*>RR;
+	PriorityQueue<Processor*>SJF;
+	//PriorityQueue <Process*>ss;
 
 public:
 	Scheduler();
