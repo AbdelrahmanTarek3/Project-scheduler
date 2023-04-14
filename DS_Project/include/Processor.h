@@ -24,6 +24,7 @@ public:
 	void setFP(int fp);
 	void settotal(int t);
 	void readydel();
+	virtual void ScheduleAlgo() = 0; // added the pure virtual function
 
 	int getpid();
 	int getID();

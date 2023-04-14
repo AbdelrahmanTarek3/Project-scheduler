@@ -108,7 +108,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\usama\source\repos\Project-scheduler\DS_Project;C:\Users\usama\source\repos\Project-scheduler\DS_Project\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir);$(ProjectDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -132,6 +132,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="FCFS.h" />
     <ClInclude Include="include\ArrayStack.h" />
     <ClInclude Include="include\LinkedQueue.h" />
     <ClInclude Include="include\Node.h" />
@@ -147,6 +148,7 @@
     <ClInclude Include="include\UI.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FCFS.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Process.cpp" />
     <ClCompile Include="src\Processor.cpp" />
