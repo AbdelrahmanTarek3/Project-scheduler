@@ -148,7 +148,6 @@
     <ClInclude Include="include\StackADT.h" />
     <ClInclude Include="include\LinkedList.h" />
     <ClInclude Include="include\UI.h" />
-    <ClInclude Include="SJF.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\FCFS.cpp" />

@@ -14,7 +14,7 @@ SJF::SJF(int id, int rtf, int maxw, int stl, int fp)
 SJF::~SJF()
 {}
 
-void SJF::SetReady(Process* px)
+void SJF::setready(Process* px)
 {
 	
 	ready.enqueue(px, px->getAT());

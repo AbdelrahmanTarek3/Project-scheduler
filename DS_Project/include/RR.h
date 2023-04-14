@@ -16,5 +16,5 @@ public:
 	int setTimeSlice(int TimeSlice);
 	void getTimeSlice();
 	virtual void ScheduleAlgo();
-	void SetReady(Process* p1);
+	void setready(Process* p1);
 };

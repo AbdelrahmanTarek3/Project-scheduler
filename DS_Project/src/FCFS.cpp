@@ -16,7 +16,7 @@ FCFS::~FCFS()
 
 }
 
-void FCFS::SetReady(Process* px)
+void FCFS::setready(Process* px)
 {
 	
 	if(ready.isEmpty() == true)

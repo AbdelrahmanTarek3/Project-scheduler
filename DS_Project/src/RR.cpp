@@ -17,7 +17,7 @@ RR::~RR()
 
 }
 
-void RR::SetReady(Process* px)
+void RR::setready(Process* px)
 {
 	ready.enqueue(px);
 }

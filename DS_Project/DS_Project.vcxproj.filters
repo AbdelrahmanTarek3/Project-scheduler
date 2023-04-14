@@ -54,9 +54,6 @@
     <ClInclude Include="include\PriorityQueueADT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SJF.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\FCFS.h">
       <Filter>Header Files</Filter>
     </ClInclude>

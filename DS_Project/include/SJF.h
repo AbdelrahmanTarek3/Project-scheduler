@@ -12,6 +12,6 @@ public:
 	SJF();
 	~SJF();
 	virtual void ScheduleAlgo();
-	virtual void SetReady(Process* p1);
+	virtual void setready(Process* p1);
 
 };

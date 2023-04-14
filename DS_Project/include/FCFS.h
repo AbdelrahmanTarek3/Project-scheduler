@@ -13,7 +13,7 @@ public:
 	FCFS();
 	~FCFS();
 	virtual void ScheduleAlgo();
-	void SetReady(Process* p1);
+	void setready(Process* p1);
 
 
 
