@@ -1,12 +1,12 @@
 #pragma once
 # include <iostream>
-using namespace std;
+// using namespace std;
 # include <string>
 
 class UI
 {
 private:
-	string filename;
+	std::string filename;
 	int mode;
 
 public:
@@ -16,8 +16,8 @@ public:
 	void stepbystep();
 	void silent();
 	void setmode(int s);
-	void setfile(string file);
-	string getfile();
+	void setfile(std::string file);
+	std::string getfile();
 	void detectenter();
 
 };

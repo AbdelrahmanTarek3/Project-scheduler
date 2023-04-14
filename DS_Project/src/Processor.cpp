@@ -1,4 +1,4 @@
-using namespace std;
+// using namespace std;
 #include "../include/Processor.h"
 
 Processor::Processor()

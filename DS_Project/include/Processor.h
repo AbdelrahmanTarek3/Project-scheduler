@@ -1,5 +1,5 @@
 #pragma once
-using namespace std;
+// using namespace std;
 # include "LinkedList.h"
 # include "Process.h"
 

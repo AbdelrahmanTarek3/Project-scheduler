@@ -9,13 +9,13 @@
 # include "Process.h"
 # include "LinkedList.h"
 # include "PriorityQueue.h"
-using namespace std;
+// using namespace std;
 
 class Scheduler
 {
 private:
 	UI* points = new UI;
-	ifstream input;
+	std::ifstream input;
 	int FCFSN, SJFN, RRN, TOTALprocessors;
 	int TS;
 	int RTF, MAXW, STL, FP;

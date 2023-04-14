@@ -1,5 +1,5 @@
 #include"../include/Process.h"
-using namespace std;
+// using namespace std;
 
 Process::Process()
 {

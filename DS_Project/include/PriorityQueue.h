@@ -87,9 +87,9 @@ public:
 		while (ptr)
 		{
 			item = ptr->getItem();
-			//cout << *item;
+			//std::cout << *item;
 			if (ptr->getNext())
-				cout << ",";
+				std::cout << ",";
 			ptr = ptr->getNext();
 		}
 	}
