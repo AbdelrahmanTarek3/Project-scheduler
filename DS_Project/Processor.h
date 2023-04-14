@@ -7,7 +7,7 @@ class Processor
 {
 private:
 	int ID, RTF, MaxW, STL, FP;
-	int totalCT;
+	int totalCT;	
 	int processid = 0;
 	LinkedList <Process*> ready;
 	Process* p1;
@@ -22,7 +22,7 @@ public:
 	void setMaxW(int max);
 	void setSTL(int stl);
 	void setFP(int fp);
-	void settotal(int t);
+	void settotal(int t, int op);
 	void readydel();
 
 	int getpid();

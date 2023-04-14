@@ -19,7 +19,7 @@ void Scheduler::simulate()
 	points->startscreen();
 	openfile();
 	int count = 0;
-	while (terminate.getcount() == NP)
+	while (terminate.getcount() != NP)
 	{
 		while (newprocesses.peek(p1) && p1->getAT() == i)
 		{
@@ -27,7 +27,7 @@ void Scheduler::simulate()
 			{
 				FCFS.peek(pp);
 				pp->setready(p1);
-				pp->settotal(p1->getCT());
+				pp->settotal(p1->getCT(),1);
 				FCFS.dequeue(pp);
 				FCFS.enqueue(pp, pp->gettotal());
 				check.InsertBeg(pp);
@@ -37,7 +37,7 @@ void Scheduler::simulate()
 			{
 				SJF.peek(pp);
 				pp->setready(p1);
-				pp->settotal(p1->getCT());
+				pp->settotal(p1->getCT(),1);
 				SJF.dequeue(pp);
 				SJF.enqueue(pp, pp->gettotal());
 				check.InsertBeg(pp);
@@ -62,7 +62,9 @@ void Scheduler::simulate()
 					{
 						blocked.enqueue(pp->getready());
 						pp->readydel();
+						pp->setpid(0);
 						check.DeleteFirst();
+						//change the total ct
 					}
 					else if (random >= 20 && random <= 30)
 					{
@@ -73,6 +75,7 @@ void Scheduler::simulate()
 					{
 						terminate.enqueue(pp->getready());
 						pp->readydel();
+						pp->setpid(0);
 						check.DeleteFirst();
 					}
 				}
@@ -84,7 +87,26 @@ void Scheduler::simulate()
 			int random = ((rand() % (100 + 1)));
 			if (random < 10)
 			{
-
+				if (FCFSN != 0)	// need to add another condiiton if all have process
+				{
+					FCFS.peek(pp);
+					pp->setready(p1);
+					pp->settotal(p1->getCT(),1);
+					FCFS.dequeue(pp);
+					FCFS.enqueue(pp, pp->gettotal());
+					check.InsertBeg(pp);
+					blocked.dequeue(p1);
+				}
+				else if (SJFN != 0)
+				{
+					SJF.peek(pp);
+					pp->setready(p1);
+					pp->settotal(p1->getCT(),1);
+					SJF.dequeue(pp);
+					SJF.enqueue(pp, pp->gettotal());
+					check.InsertBeg(pp);
+					blocked.dequeue(p1);
+				}
 			}
 		}
 

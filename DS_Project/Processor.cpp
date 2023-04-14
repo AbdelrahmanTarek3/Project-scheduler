@@ -40,9 +40,16 @@ void Processor::setSTL(int stl)
 	STL = stl;
 }
 
-void Processor::settotal(int t)
+void Processor::settotal(int t, int op)
 {
-	totalCT = totalCT + t;
+	if (op == 1)
+	{
+		totalCT = totalCT + t;
+	}
+	else
+	{
+		totalCT = totalCT - t;
+	}
 }
 
 int Processor::getFP()
