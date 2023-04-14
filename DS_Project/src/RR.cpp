@@ -12,6 +12,12 @@ RR::RR(int id, int rtf, int maxw, int stl, int fp, int TimeSlice)
 	setTimeSlice(TimeSlice);
 
 }
+
+RR::RR()
+{
+
+}
+
 RR::~RR()
 {
 
@@ -26,4 +32,10 @@ void RR::ScheduleAlgo()
 {
 	ready.dequeue(*&run); 
 }
+
+//void RR::setTimeSlice(int tt)
+//{
+//	TimeSlice = tt;
+//}
+
 

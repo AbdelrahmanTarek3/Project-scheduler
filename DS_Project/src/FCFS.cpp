@@ -11,6 +11,12 @@ FCFS::FCFS(int id, int rtf, int maxw, int stl, int fp)
 	setFP(fp);
 
 }
+
+FCFS::FCFS()
+{
+
+}
+
 FCFS::~FCFS()
 {
 

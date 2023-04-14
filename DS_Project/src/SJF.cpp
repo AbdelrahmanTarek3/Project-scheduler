@@ -11,8 +11,16 @@ SJF::SJF(int id, int rtf, int maxw, int stl, int fp)
 	setFP(fp);
 
 }
+
+SJF::SJF()
+{
+
+}
+
 SJF::~SJF()
-{}
+{
+
+}
 
 void SJF::setready(Process* px)
 {
