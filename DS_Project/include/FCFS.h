@@ -15,8 +15,5 @@ public:
 	virtual void ScheduleAlgo();
 	void setready(Process* p1);
 
-
-
-
-
+	void printRDY();
 };

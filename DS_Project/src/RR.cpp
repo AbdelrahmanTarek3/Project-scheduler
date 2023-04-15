@@ -43,5 +43,7 @@ void RR::ScheduleAlgo()
 	ready.dequeue(*&run); 
 }
 
-
-
+void RR::printRDY()
+{
+	
+}

@@ -23,4 +23,11 @@ public:
 	std::string getfile();
 	void detectenter();
 
+
+	void printRDY();
+	void printBLK();
+	void printRUN();
+	void printTRM();
+	void printNextTimeStep();
+
 };

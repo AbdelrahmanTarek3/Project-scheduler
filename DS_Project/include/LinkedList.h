@@ -325,4 +325,10 @@ public:
 		item = Head->getItem();
 		return true;
 	}
+
+
+	int getCount()
+	{
+		return count;
+	}
 };

@@ -11,8 +11,8 @@ private:
 	int processid = 0;
 	Process* p1;
 public:
-	Processor();
-	Processor(int id, int rtf, int maxw, int stl, int fp);
+	// Processor();
+	// Processor(int id, int rtf, int maxw, int stl, int fp);
 
 	void setpid(int idd);
 	virtual void setready(Process* p2) = 0;// the set ready pure virtual
@@ -24,6 +24,8 @@ public:
 	void settotal(int t, int op);
 	void readydel();
 	virtual void ScheduleAlgo() = 0; // added the pure virtual function
+	void print();
+	virtual void printRDY() = 0;
 
 	int getpid();
 	int getID();

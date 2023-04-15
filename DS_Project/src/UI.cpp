@@ -87,17 +87,6 @@ void UI::setcheck(LinkedList <Processor*> check)
 void UI::interactive()
 {
 	
-	std::cout << "Current Timestep:70" << std::endl;
-	std::cout << "------------- RDY Processes -------------" << std::endl;
-
-	std::cout << "------------- BLK Processes -------------" << std::endl;
-
-	std::cout << "------------- RUN Processes -------------" << std::endl;
-
-	std::cout << "------------- TRM Processes -------------" << std::endl;
-
-	std::cout << "PRESS ANY KEY TO MOVE TO NEXT STEP !" << std::endl;
-    std::cin.get();
 }
 
 void UI::silent()
@@ -112,3 +101,24 @@ void UI::detectenter()
 }
 
 
+
+
+void UI::printRDY(){
+	std::cout << "------------- RDY Processes -------------" << std::endl;
+
+}
+void UI::printBLK(){
+	std::cout << "------------- BLK Processes -------------" << std::endl;
+
+}
+void UI::printRUN(){
+	std::cout << "------------- RUN Processes -------------" << std::endl;
+}
+void UI::printTRM(){
+	std::cout << "------------- TRM Processes -------------" << std::endl;
+}
+void UI::printNextTimeStep(){
+	std::cout << "PRESS ANY KEY TO MOVE TO NEXT STEP !" << std::endl;
+    std::cin.get();
+
+}

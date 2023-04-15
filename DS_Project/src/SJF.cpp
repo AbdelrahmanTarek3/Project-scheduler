@@ -1,7 +1,7 @@
 #include"SJF.h"
 #include "Scheduler.h"
 # include "Process.h"
-#include "PriorityQueue.h";
+#include "PriorityQueue.h"
 SJF::SJF(int id, int rtf, int maxw, int stl, int fp)
 {
 	setID(id);
@@ -32,4 +32,9 @@ void SJF::setready(Process* px)
 void SJF::ScheduleAlgo()
 {
 	ready.dequeue(*&run);
+}
+
+void SJF::printRDY()
+{
+
 }

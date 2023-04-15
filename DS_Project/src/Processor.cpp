@@ -1,19 +1,19 @@
 // using namespace std;
 #include "../include/Processor.h"
 
-Processor::Processor()
-{
+// Processor::Processor()
+// {
 
-}
+// }
 
-Processor::Processor(int id, int rtf, int maxw, int stl, int fp)
-{
-	setID(id);
-	setRTF(rtf);
-	setMaxW(maxw);
-	setFP(fp);
-	setSTL(stl);
-}
+// Processor::Processor(int id, int rtf, int maxw, int stl, int fp)
+// {
+// 	setID(id);
+// 	setRTF(rtf);
+// 	setMaxW(maxw);
+// 	setFP(fp);
+// 	setSTL(stl);
+// }
 
 void Processor::setFP(int ff)
 {
@@ -82,23 +82,27 @@ int Processor::gettotal()
 	return totalCT;
 }
 
-void Processor::setready(Process* p2)
+void Processor::print()
 {
-	if (ready.isEmpty() == true)
-	{
-		ready.InsertBeg(p2);
-	}
-	else
-	{
-		ready.InsertEnd(p2);
-	}
-}
 
-Process* Processor::getready()
-{
-	ready.peekFront(p1);
-	return p1;
 }
+// void Processor::setready(Process* p2)
+// {
+// 	if (ready.isEmpty() == true)
+// 	{
+// 		ready.InsertBeg(p2);
+// 	}
+// 	else
+// 	{
+// 		ready.InsertEnd(p2);
+// 	}
+// }
+
+// Process* Processor::getready()
+// {
+// 	ready.peekFront(p1);
+// 	return p1;
+// }
 
 void Processor::setpid(int idd)
 {
@@ -110,11 +114,11 @@ int Processor::getpid()
 	return processid;
 }
 
-void Processor::readydel()
-{
-	if (ready.isEmpty() == false)
-	{
-		ready.DeleteFirst();
-	}
-}
+// void Processor::readydel()
+// {
+// 	if (ready.isEmpty() == false)
+// 	{
+// 		ready.DeleteFirst();
+// 	}
+// }
 

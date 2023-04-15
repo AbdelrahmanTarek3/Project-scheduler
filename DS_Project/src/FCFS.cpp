@@ -35,6 +35,14 @@ void FCFS::setready(Process* px)
 	}
 }
 
+void FCFS::printRDY()
+{
+	// print 	processor 1 [FCFS]: 7 RDY: 12, 113, 116, 245, 9, 105, 75
+	std::cout << "processor " << getID() << " [FCFS]: " << ready.getCount() << " RDY: ";
+	ready.PrintList();
+}
+
+
 void FCFS::ScheduleAlgo()
 {
 	ready.peekFront(*&run); // should we peek and then delete?
