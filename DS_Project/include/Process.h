@@ -2,13 +2,22 @@
 class Process
 {
 private:
+	// PID:
+	// AT:
+	// RT:
+	// CT:
+	// TT: Termination Time
+	// TRT: 
+	// WT:
 	int PID, AT, RT, CT, TT, TRT, WT;
+	// IO_number:
+	// remaining_time:
 	int IO_number, remaining_time;
 	
 	Process* next;
 public:
 	Process();
-	Process(int at, int pid, int rt, int ct);
+	Process(int at, int pid, int ct, int nio);
 	
 	void setPID(int i);
 	int getPID();
@@ -35,7 +44,6 @@ public:
 	int getIO_number();
 	
 	void setremaining_time(int rt);
-	int getremaining_time();
-
+	int getremaining_time(int time);
 };
 

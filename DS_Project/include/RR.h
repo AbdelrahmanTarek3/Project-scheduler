@@ -6,7 +6,7 @@ class RR : public Processor
 {
 private:
 	LinkedQueue <Process*> ready;
-	Process* run;
+	// Process* run;
 	int TimeSlice;
 public:
 
@@ -15,8 +15,9 @@ public:
 	~RR();
 	void setTimeSlice(int TimeSlice);
 	int getTimeSlice();
-	virtual void ScheduleAlgo();
+	virtual void ScheduleAlgo(int time, LinkedQueue <Process*>& terminate);
 	void setready(Process* p1);
+	bool isBusy(Process* run);
 
 	void printRDY();
 };

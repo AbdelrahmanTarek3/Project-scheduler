@@ -6,12 +6,12 @@ Process::Process()
 
 }
 
-Process::Process(int at, int pid, int rt, int ct)
+Process::Process(int at, int pid, int ct, int nio)
 {
     setPID(pid);
     setAT(at);
-    setRT(rt);
     setCT(ct);
+    setIO_number(nio);
 }
 
 void Process::setPID(int i)
@@ -99,8 +99,9 @@ void Process::setremaining_time(int rt)
     remaining_time = rt;
 }
 
-int Process::getremaining_time()
+int Process::getremaining_time(int time)
 {
+    // return RT + CT - time;
     return remaining_time;
 }
 

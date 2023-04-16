@@ -1,17 +1,20 @@
 #pragma once
 // using namespace std;
+# include "LinkedQueue.h"
 # include "LinkedList.h"
 # include "Process.h"
 
 class Processor
 {
+protected:
+	Process* run;
 private:
 	int ID, RTF, MaxW, STL, FP;
+	// Total CPU Time gettotal, settotal
 	int totalCT;	
 	int processid = 0;
-	Process* p1;
 public:
-	// Processor();
+	Processor();
 	// Processor(int id, int rtf, int maxw, int stl, int fp);
 
 	void setpid(int idd);
@@ -23,9 +26,10 @@ public:
 	void setFP(int fp);
 	void settotal(int t, int op);
 	void readydel();
-	virtual void ScheduleAlgo() = 0; // added the pure virtual function
+	virtual void ScheduleAlgo(int time, LinkedQueue <Process*>& terminate) = 0; // added the pure virtual function
 	void print();
 	virtual void printRDY() = 0;
+	bool isBusy(Process*& run);
 
 	int getpid();
 	int getID();

@@ -1,8 +1,9 @@
 #include"RR.h"
 #include "Scheduler.h"
 # include "Process.h"
-#include "LinkedQueue.h";
+#include "LinkedQueue.h"
 RR::RR(int id, int rtf, int maxw, int stl, int fp, int TimeSlice)
+ : Processor()
 {
 	setID(id);
 	setRTF(rtf);
@@ -38,7 +39,7 @@ void RR::setready(Process* px)
 	ready.enqueue(px);
 }
 
-void RR::ScheduleAlgo()
+void RR::ScheduleAlgo(int time, LinkedQueue <Process*>& terminate)
 {
 	ready.dequeue(*&run); 
 }

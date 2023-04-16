@@ -22,7 +22,8 @@ void UI::startscreen()
 
 	std::cout << "Please enter the input file of your data in the following format (filename.txt): ";
 	std::string filee;
-	std::cin >> filee;
+	// std::cin >> filee;
+	filee = "fcfs.txt";
 	setfile(filee);
 	
 	//std::cout << "Thanks for your patience,";
@@ -97,7 +98,7 @@ void UI::silent()
 
 void UI::detectenter()
 {
-	std::cin.get() == '\n';
+	std::cin.get();
 }
 
 
@@ -119,6 +120,6 @@ void UI::printTRM(){
 }
 void UI::printNextTimeStep(){
 	std::cout << "PRESS ANY KEY TO MOVE TO NEXT STEP !" << std::endl;
-    std::cin.get();
+    // std::cin.get();
 
 }

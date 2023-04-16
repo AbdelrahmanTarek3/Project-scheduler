@@ -1,10 +1,10 @@
 // using namespace std;
 #include "../include/Processor.h"
 
-// Processor::Processor()
-// {
-
-// }
+Processor::Processor()
+{
+	run = nullptr;
+}
 
 // Processor::Processor(int id, int rtf, int maxw, int stl, int fp)
 // {
@@ -122,3 +122,10 @@ int Processor::getpid()
 // 	}
 // }
 
+bool Processor::isBusy(Process*& run)
+{
+	if (this->run == nullptr)
+		return false;
+	run = this->run;
+	return true;
+}

@@ -21,22 +21,23 @@ void Scheduler::simulate()
 
 	if (TOTALprocessors != 0)
 	{
-		int i = 1;
+		int time = 1;
 		while (terminate.getcount() != NP)
 		{
-			std::cout << "Current Timestep:" << i << std::endl;
+			std::cout << "Current Timestep:" << time << std::endl;
 
 			// Move new processes with the arrival time == current time step to ready queue of the processor
 			Process* queuefirstprocess;
-			while (newprocesses.peek(queuefirstprocess) && queuefirstprocess->getAT() == i)
+			while (newprocesses.peek(queuefirstprocess) && queuefirstprocess->getAT() == time)
 			{
 				Processor* pp;
 				processors.peek(pp);	// front processor
 				pp->setready(queuefirstprocess);	// Move process to ready queue
+				queuefirstprocess->setremaining_time(queuefirstprocess->getCT());
 				pp->settotal(queuefirstprocess->getCT(), 1);	// Update total CPU time for the processor
 				processors.dequeue(pp);	// remove front processor
 				processors.enqueue(pp, pp->gettotal());	// add as last processor
-
+				
 				if (check.isEmpty() == true)
 				{
 					check.InsertBeg(pp);
@@ -48,24 +49,70 @@ void Scheduler::simulate()
 
 				newprocesses.dequeue(queuefirstprocess);	// remove the process from the front
 			}
-
 			// Print Ready for processors
 			ui->printRDY();
-			// You should loop over processors
-			Processor* pp;
-			processors.peek(pp);
-			pp->printRDY();
-			// You should loop over processors
+			// ui->printRDY(TOTALprocessors, processors, ....);
+			// this for loop goes to ui-> printRDY();
+			for (int i = 0; i < TOTALprocessors; i++)
+			{
+				Processor *p;
+				processors.dequeue(p);
+				// p->printRDY(); goes to another function in ui from FCFS
+				// printProcessorProcesses(processor )
+				p->printRDY();
+				// function inside ui : takes processor , print processes inside processor
+				processors.enqueue(p, p->gettotal());
+			}
 
-			ui->printBLK();
-			blocked.print();
+
+			// Check for finished processes
+			// Move ready processes to Run Call here schedulerAlgo
+			for (int i = 0; i < TOTALprocessors; i++)
+			{
+				Processor *p;
+				processors.dequeue(p);
+				p->ScheduleAlgo(time, terminate);
+				processors.enqueue(p, p->gettotal());
+			}
+
+			// ui->printBLK();
+			// blocked.print();
 
 			ui->printRUN();
-			// You should loop over processors
-			// You should loop over processors
+			int running_count = 0;
+			for (int i = 0; i < TOTALprocessors; i++)
+			{
+				Processor *p;
+				processors.dequeue(p);
+				Process* running;
+				if (p->isBusy(running))
+					running_count += 1;
+				processors.enqueue(p, p->gettotal());
+			}
+			std::cout << running_count << " RUN: ";
+			for (int i = 0; i < TOTALprocessors; i++)
+			{
+				Processor *p;
+				processors.dequeue(p);
+				Process* running;
+				if (p->isBusy(running))
+					std::cout << running->getPID() << "(P" << p->getID() << "), ";
+				processors.enqueue(p, p->gettotal());
+			}
+			std::cout << std::endl;
+
 
 			ui->printTRM();
-			// terminate.print();
+			std::cout << terminate.getcount() << " TRM: ";
+			for (int i = 0; i < terminate.getcount(); i++)
+			{
+				Process* proc;
+				terminate.peek(proc);
+				std::cout << proc->getPID() << ", ";
+				terminate.dequeue(proc);
+				terminate.enqueue(proc);
+			}
+			std::cout << std::endl;
 			
 			
 
@@ -134,7 +181,7 @@ void Scheduler::simulate()
 		// 		}
 		// 	}
 			ui->printNextTimeStep();
-			i++;
+			time++;
 		}
 	}
 }
@@ -162,12 +209,12 @@ void Scheduler::processordata()
 		Processor* pointer = new FCFS(i, RTF, MAXW, STL, FP);
 		processors.enqueue(pointer,0);
 	}
-	for (int i = FCFSN; i <= (SJFN+FCFSN); i++)
+	for (int i = FCFSN; i < (FCFSN+SJFN); i++)
 	{
 		Processor* pointer = new SJF(i, RTF, MAXW, STL, FP);
 		processors.enqueue(pointer, 0);
 	}
-	for (int i = (SJFN + FCFSN); i <= (SJFN + FCFSN + RRN); i++)
+	for (int i = (FCFSN + SJFN); i < (FCFSN + SJFN + RRN); i++)
 	{
 		Processor* pointer = new RR(i, RTF, MAXW, STL, FP, TS);
 		processors.enqueue(pointer, 0);

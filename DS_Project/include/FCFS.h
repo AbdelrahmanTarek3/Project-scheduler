@@ -5,15 +5,16 @@ class FCFS : public Processor
 {
 private:
 	LinkedList <Process*> ready;
-	Process* run;
+	// Process* run;
 
 public:
 
 	FCFS(int id, int rtf, int maxw, int stl, int fp);
 	FCFS();
 	~FCFS();
-	virtual void ScheduleAlgo();
+	virtual void ScheduleAlgo(int time, LinkedQueue <Process*>& terminate);
 	void setready(Process* p1);
+	// bool isBusy(Process* run);
 
 	void printRDY();
 };

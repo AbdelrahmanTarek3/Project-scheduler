@@ -3,6 +3,7 @@
 # include "Process.h"
 #include "PriorityQueue.h"
 SJF::SJF(int id, int rtf, int maxw, int stl, int fp)
+ : Processor()
 {
 	setID(id);
 	setRTF(rtf);
@@ -29,7 +30,7 @@ void SJF::setready(Process* px)
 
 }
 
-void SJF::ScheduleAlgo()
+void SJF::ScheduleAlgo(int time, LinkedQueue <Process*>& terminate)
 {
 	ready.dequeue(*&run);
 }

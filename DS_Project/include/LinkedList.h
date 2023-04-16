@@ -326,6 +326,14 @@ public:
 		return true;
 	}
 
+	bool peekHead(Node<T>*& item)
+	{
+		if (isEmpty())
+			return false;
+		item = Head;
+		return true;
+	}
+
 
 	int getCount()
 	{
