@@ -3,6 +3,7 @@
 # include <string>
 # include "LinkedList.h"
 # include "Processor.h"
+#include"PriorityQueue.h"
 
 class UI
 {
@@ -29,5 +30,6 @@ public:
 	void printRUN(PriorityQueue<Processor*>processors, int TOTALprocessors);
 	void printTRM(PriorityQueue<Processor*>processors, int TOTALprocessors, LinkedQueue <Process*> terminate );
 	void printNextTimeStep();
+	void printProcessorProceesesRDY(Processor*processor);
 
 };

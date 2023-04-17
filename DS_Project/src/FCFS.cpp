@@ -36,24 +36,6 @@ void FCFS::setready(Process* px)
 	}
 }
 
-void FCFS::printRDY()
-{
-	// print 	processor 1 [FCFS]: 7 RDY: 12, 113, 116, 245, 9, 105, 75
-	std::cout << "processor " << getID() << " [FCFS]: " << ready.getCount() << " RDY: ";
-	// ready.PrintList();
-	if (ready.getCount() > 0)
-	{
-		Node<Process*>* p;
-		ready.peekHead(p);
-		while (p)
-		{
-			std::cout << p->getItem()->getPID();
-			std::cout << ", ";
-			p = p->getNext();
-		}
-	}
-	std::cout << std::endl;
-}
 
 
 void FCFS::ScheduleAlgo(int time, LinkedQueue <Process*>& terminate)
@@ -127,4 +109,12 @@ void FCFS::ScheduleAlgo(int time, LinkedQueue <Process*>& terminate)
 		if (run != nullptr)
 			run->setremaining_time(run->getCT());
 	}
+
+
+}
+int FCFS::GetReadyCount()
+{
+	int ReadyCount;
+	ReadyCount =ready.getCount();
+	return ReadyCount;
 }

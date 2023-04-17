@@ -38,5 +38,6 @@ public:
 	int getSTL();
 	int getFP();
 	int gettotal();
-	Process* getready();
+	virtual int GetReadyCount() = 0;
+
 };

@@ -48,3 +48,10 @@ void RR::printRDY()
 {
 	
 }
+int SJF::GetReadyCount()
+{
+	int ReadyCount;
+	ReadyCount = ready.getcount();
+	return ReadyCount;
+
+}

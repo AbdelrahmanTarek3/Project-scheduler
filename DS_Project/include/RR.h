@@ -20,4 +20,5 @@ public:
 	bool isBusy(Process* run);
 
 	void printRDY();
+	virtual int GetReadyCount();
 };
