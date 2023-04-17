@@ -47,6 +47,7 @@ private:
 	LinkedList <Processor*> check;
 	
 	PriorityQueue<Processor*>processors;
+	LinkedList <MyPair> pairs;
 
 
 public:

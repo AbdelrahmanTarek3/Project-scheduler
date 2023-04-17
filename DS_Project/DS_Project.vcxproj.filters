@@ -63,7 +63,7 @@
     <ClInclude Include="include\RR.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MyPair.h">
+    <ClInclude Include="include\MyPair.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

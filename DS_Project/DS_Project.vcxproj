@@ -135,6 +135,7 @@
     <ClInclude Include="include\ArrayStack.h" />
     <ClInclude Include="include\FCFS.h" />
     <ClInclude Include="include\LinkedQueue.h" />
+    <ClInclude Include="include\MyPair.h" />
     <ClInclude Include="include\Node.h" />
     <ClInclude Include="include\PriorityQueue.h" />
     <ClInclude Include="include\PriorityQueueADT.h" />
@@ -148,7 +149,6 @@
     <ClInclude Include="include\StackADT.h" />
     <ClInclude Include="include\LinkedList.h" />
     <ClInclude Include="include\UI.h" />
-    <ClInclude Include="MyPair.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\FCFS.cpp" />

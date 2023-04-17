@@ -6,6 +6,7 @@
 # include "Processor.h"
 # include <cstdlib>
 # include "FCFS.h"
+#include "MyPair.h"
 
 Scheduler::Scheduler()
 {
@@ -188,14 +189,18 @@ void Scheduler::processesdata()
 		input >> AT >> PID >> CT >> NIO;
 		Process* pointerr = new Process(AT, PID, CT, NIO);
 		newprocesses.enqueue(pointerr);
-		// newprocesses.peek(pointerr); / Check with Usama
-		//if (NIO != 0)
-		//{
-		//	for (int j = 0; j < NIO; j++)
-		//	{
-
-		//	}
-		//}
+		newprocesses.peek(pointerr); // Check with Usama
+		if (NIO != 0)
+		{
+			for (int j = 0; j < NIO; j++)
+			{
+				char c;
+				int IO_R, int IO_D;
+				input >> c >> IO_R >> c >> IO_D >> c;
+				MyPair pair(IO_R, IO_D);
+				pairs.InsertBeg(pair);									//linked list best option??
+			}
+		}
 	}
 }
 
