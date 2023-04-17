@@ -3,6 +3,7 @@
 # include <string>
 # include "../include/UI.h"
 # include <Windows.h>
+#include"PriorityQueue.h"
 
 UI::UI()
 {
@@ -104,19 +105,59 @@ void UI::detectenter()
 
 
 
-void UI::printRDY(){
+void UI::printRDY(PriorityQueue<Processor*>processors, int TOTALprocessors){
 	std::cout << "------------- RDY Processes -------------" << std::endl;
-
+	for (int i = 0; i < TOTALprocessors; i++)
+	{
+		Processor* p;
+		processors.dequeue(p);
+		// p->printRDY(); goes to another function in ui from FCFS
+		// printProcessorProcesses(processor )
+		p->printRDY();
+		// function inside ui : takes processor , print processes inside processor
+		processors.enqueue(p, p->gettotal());
+	}
 }
 void UI::printBLK(){
 	std::cout << "------------- BLK Processes -------------" << std::endl;
 
 }
-void UI::printRUN(){
+void UI::printRUN(PriorityQueue<Processor*>processors, int TOTALprocessors){
 	std::cout << "------------- RUN Processes -------------" << std::endl;
+	int running_count = 0;
+	for (int i = 0; i < TOTALprocessors; i++)
+	{
+		Processor* p;
+		processors.dequeue(p);
+		Process* running;
+		if (p->isBusy(running))
+			running_count += 1;
+		processors.enqueue(p, p->gettotal());
+	}
+	std::cout << running_count << " RUN: ";
+	for (int i = 0; i < TOTALprocessors; i++)
+	{
+		Processor* p;
+		processors.dequeue(p);
+		Process* running;
+		if (p->isBusy(running))
+			std::cout << running->getPID() << "(P" << p->getID() << "), ";
+		processors.enqueue(p, p->gettotal());
+	}
+	std::cout << std::endl;
 }
-void UI::printTRM(){
+void UI::printTRM(PriorityQueue<Processor*>processors, int TOTALprocessors, LinkedQueue <Process*> terminate){
 	std::cout << "------------- TRM Processes -------------" << std::endl;
+	std::cout << terminate.getcount() << " TRM: ";
+	for (int i = 0; i < terminate.getcount(); i++)
+	{
+		Process* proc;
+		terminate.peek(proc);
+		std::cout << proc->getPID() << ", ";
+		terminate.dequeue(proc);
+		terminate.enqueue(proc);
+	}
+	std::cout << std::endl;
 }
 void UI::printNextTimeStep(){
 	std::cout << "PRESS ANY KEY TO MOVE TO NEXT STEP !" << std::endl;

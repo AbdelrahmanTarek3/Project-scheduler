@@ -24,10 +24,10 @@ public:
 	void detectenter();
 
 
-	void printRDY();
+	void printRDY(PriorityQueue<Processor*>processors, int TOTALprocessors);
 	void printBLK();
-	void printRUN();
-	void printTRM();
+	void printRUN(PriorityQueue<Processor*>processors, int TOTALprocessors);
+	void printTRM(PriorityQueue<Processor*>processors, int TOTALprocessors, LinkedQueue <Process*> terminate );
 	void printNextTimeStep();
 
 };

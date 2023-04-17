@@ -50,23 +50,14 @@ void Scheduler::simulate()
 				newprocesses.dequeue(queuefirstprocess);	// remove the process from the front
 			}
 			// Print Ready for processors
-			ui->printRDY();
-			// ui->printRDY(TOTALprocessors, processors, ....);
+			ui->printRDY(processors, TOTALprocessors);
+			// ui->printRDY(TOTALprocessors, processors, ....);						//done
 			// this for loop goes to ui-> printRDY();
-			for (int i = 0; i < TOTALprocessors; i++)
-			{
-				Processor *p;
-				processors.dequeue(p);
-				// p->printRDY(); goes to another function in ui from FCFS
-				// printProcessorProcesses(processor )
-				p->printRDY();
-				// function inside ui : takes processor , print processes inside processor
-				processors.enqueue(p, p->gettotal());
-			}
+
 
 
 			// Check for finished processes
-			// Move ready processes to Run Call here schedulerAlgo
+			// Move ready processes to Run   //Call here schedulerAlgo
 			for (int i = 0; i < TOTALprocessors; i++)
 			{
 				Processor *p;
@@ -78,43 +69,11 @@ void Scheduler::simulate()
 			// ui->printBLK();
 			// blocked.print();
 
-			ui->printRUN();
-			int running_count = 0;
-			for (int i = 0; i < TOTALprocessors; i++)
-			{
-				Processor *p;
-				processors.dequeue(p);
-				Process* running;
-				if (p->isBusy(running))
-					running_count += 1;
-				processors.enqueue(p, p->gettotal());
-			}
-			std::cout << running_count << " RUN: ";
-			for (int i = 0; i < TOTALprocessors; i++)
-			{
-				Processor *p;
-				processors.dequeue(p);
-				Process* running;
-				if (p->isBusy(running))
-					std::cout << running->getPID() << "(P" << p->getID() << "), ";
-				processors.enqueue(p, p->gettotal());
-			}
-			std::cout << std::endl;
+			ui->printRUN(processors, TOTALprocessors);							//done
+			
 
 
-			ui->printTRM();
-			std::cout << terminate.getcount() << " TRM: ";
-			for (int i = 0; i < terminate.getcount(); i++)
-			{
-				Process* proc;
-				terminate.peek(proc);
-				std::cout << proc->getPID() << ", ";
-				terminate.dequeue(proc);
-				terminate.enqueue(proc);
-			}
-			std::cout << std::endl;
-			
-			
+			ui->printTRM(processors, TOTALprocessors, terminate);
 
 		// if (check.isEmpty() == false)
 		// {

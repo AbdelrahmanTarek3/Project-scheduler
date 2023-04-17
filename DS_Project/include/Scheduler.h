@@ -40,7 +40,7 @@ private:
 	int NP, AT, PID, CT, NIO;
 
 	LinkedQueue <Process*> newprocesses;	// new processes list
-	PriorityQueue <Process*> blocked;			//key is finishing time
+	PriorityQueue <Process*> blocked;	    //key is finishing time
 	LinkedQueue <Process*> terminate;		//done
 	LinkedList <Process*> orphan;			//done
 

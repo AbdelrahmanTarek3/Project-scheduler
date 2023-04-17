@@ -41,13 +41,16 @@ void FCFS::printRDY()
 	// print 	processor 1 [FCFS]: 7 RDY: 12, 113, 116, 245, 9, 105, 75
 	std::cout << "processor " << getID() << " [FCFS]: " << ready.getCount() << " RDY: ";
 	// ready.PrintList();
-	Node<Process*>* p;
-	ready.peekHead(p);
-	while (p)
+	if (ready.getCount() > 0)
 	{
-		std::cout << p->getItem()->getPID();
-		std::cout << ", ";
-		p = p->getNext();
+		Node<Process*>* p;
+		ready.peekHead(p);
+		while (p)
+		{
+			std::cout << p->getItem()->getPID();
+			std::cout << ", ";
+			p = p->getNext();
+		}
 	}
 	std::cout << std::endl;
 }
