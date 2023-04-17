@@ -63,6 +63,9 @@
     <ClInclude Include="include\RR.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MyPair.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Process.cpp">
