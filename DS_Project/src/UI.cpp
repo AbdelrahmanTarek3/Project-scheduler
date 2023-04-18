@@ -7,7 +7,7 @@
 
 UI::UI()
 {
-	setmode(2);
+	setmode(1);
 }
 
 void UI::startscreen()
@@ -167,7 +167,8 @@ void UI::printTRM(PriorityQueue<Processor*>& processors, int TOTALprocessors, Li
 	}
 	std::cout << std::endl;
 }
-void UI::printNextTimeStep(){
+void UI::printNextTimeStep()
+{
 	if (getmode() == 1)
 	{
 		std::cout << "PRESS ANY KEY TO MOVE TO NEXT STEP !" << std::endl;

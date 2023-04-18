@@ -120,8 +120,16 @@ void Scheduler::processesdata()
 			for (int j = 0; j < NIO; j++)
 			{
 				char c;
+				char comma, comma1;
 				int IO_R, IO_D;
-				input >> c >> IO_R >> c >> IO_D >> c;
+				if (j != NIO - 1)
+				{
+					input >> c >> IO_R >> comma >> IO_D >> c >> comma1;
+				}
+				else
+				{
+					input >> c >> IO_R >> comma >> IO_D >> c;
+				}
 				MyPair pair(IO_R, IO_D);
 				pairs.InsertBeg(pair);									//linked list best option??
 			}
