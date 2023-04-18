@@ -64,7 +64,7 @@ void Scheduler::simulate()
 			// Print Ready for processors
 			ui->printRDY(processors, TOTALprocessors);
 
-			// ui->printBLK(processors, TOTALprocessors, blocked);
+			ui->printBLK(processors, TOTALprocessors, blocked);
 
 			ui->printRUN(processors, TOTALprocessors);
 

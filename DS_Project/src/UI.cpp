@@ -119,8 +119,18 @@ void UI::printRDY(PriorityQueue<Processor*>& processors, int TOTALprocessors){
 		processors.enqueue(p, p->gettotal());
 	}
 }
-void UI::printBLK(){
+void UI::printBLK(PriorityQueue<Processor*>& processors, int TOTALprocessors, PriorityQueue <Process*>& block){
 	std::cout << "------------- BLK Processes -------------" << std::endl;
+	std::cout << block.getcount() << " BLK: ";
+	for (int i = 0; i < block.getcount(); i++)
+	{
+		Process* proc;
+		block.peek(proc);
+		std::cout << proc->getPID() << ", ";
+		block.dequeue(proc);
+		block.enqueue(proc, 0);
+	}
+	std::cout << std::endl;
 
 }
 void UI::printRUN(PriorityQueue<Processor*>& processors, int TOTALprocessors){

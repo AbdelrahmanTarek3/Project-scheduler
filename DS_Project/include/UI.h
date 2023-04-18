@@ -31,5 +31,6 @@ public:
 	void printTRM(PriorityQueue<Processor*>& processors, int TOTALprocessors, LinkedQueue <Process*>& terminate );
 	void printNextTimeStep();
 	void printProcessorProceesesRDY(Processor*processor);
+	void printBLK(PriorityQueue<Processor*>& processors, int TOTALprocessors, PriorityQueue <Process*>& block);
 
 };
