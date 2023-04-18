@@ -1,6 +1,5 @@
 #include <sstream>
 #include <cstdlib>
-#include <ctime>
 #include "FCFS.h"
 #include "Scheduler.h"
 # include "Process.h"
@@ -46,12 +45,9 @@ std::string FCFS::getRDYPIDs()
     while (curr != nullptr)
     {
         Process* p = curr->getItem();
-        // if (p->getStatus() == "ready")
-        // {
-            oss << p->getPID();
-            if (curr->getNext() != nullptr)
-                oss << ",";
-        // }
+		oss << p->getPID();
+		if (curr->getNext() != nullptr)
+			oss << ",";
         curr = curr->getNext();
     }
     return oss.str();
@@ -60,100 +56,83 @@ std::string FCFS::getRDYPIDs()
 
 void FCFS::ScheduleAlgo(int current_time, PriorityQueue <Process*>& blocked, LinkedQueue <Process*>& terminate)
 {
-	// if (current_time == 3) {
-	// 	std::cout << "2process in ready";
-	// }
-	// else if (current_time == 4) {
-	// 	std::cout << "1pc in run, 1 rdy";
-	// }
-	// else if (current_time == 5) {
-	// 	std::cout << "1 new, 2 trm";
-	// }
-	// else if (current_time == 6) {
-	// 	std::cout << "1new, 1 run, 2 trm";
-	// }
-	// else if (current_time == 7) {
-	// 	std::cout << "test";
-	// }
-	// else if (current_time == 8) {
-	// 	std::cout << "test";
-	// }
-	// else if (current_time == 9) {
-	// 	std::cout << "test";
-	// }
-	// else if (current_time == 10) {
-	// 	std::cout << "test";
-	// }
-	// else if (current_time == 11) {
-	// 	std::cout << "test";
-	// }
-	// else if (current_time == 12) {
-	// 	std::cout << "test";
-	// }
-	// else if (current_time == 13) {
-	// 	std::cout << "1 run, 3 trm";
-	// }
-	// else if (current_time == 14) {
-	// 	std::cout << "4 trm";
-	// }
-	// else if (current_time == 15) {
-	// 	std::cout << "4 trm";
-	// }
-	// else if (current_time == 16) {
-	// 	std::cout << "4 trm";
-	// }
-	// else if (current_time == 17) {
-	// 	std::cout << "4 trm";
-	// }
-	// else if (current_time == 18) {
-	// 	std::cout << "4 trm";
-	// }
+	int kill_process_id = std::rand();
+	if (!ready.isEmpty())
+	{
+		Node<Process*>* iter;
+		ready.peekHead(iter);
+		while (iter != nullptr)
+		{
+			Process* p = iter->getItem();
+			if (p->getPID() == kill_process_id)
+			{
+				// BEGIN: TRM
+				// Add to terminate queue
+				terminate.enqueue(p);
+				// END: TRM
+				ready.DeleteNode(p);
+			}
+			iter = iter->getNext();
+		}
+	}
 
-	srand(time(0));
-	int random = ((rand() % (100 + 1)));
 
-	Process* current_process;
-	if (isBusy(current_process))
+	int random = std::rand() % 100 + 1;
+	if (1 <= random && random <= 10)
+	{
+		// Move randomly blocked to ready
+		// BEGIN: RDY
+		if (!blocked.isEmpty())
+		{
+			Process* blocked_process;
+			blocked.dequeue(blocked_process);
+			setready(blocked_process);
+		}
+		// END: RDY
+	}
+	Process* running_process;
+	if (isBusy(running_process))
 	{
 		if (1 <= random && random <= 15)
 		{
 			// Move randomly run to blocked
-			// // BEGIN: BLK
-			// run = nullptr;
-			// // Add to blocked queue
-			// blocked.enqueue(current_process, 0);
-			// // END: BLK
+			// BEGIN: BLK
+			run = nullptr;
+			// Add to blocked queue
+			blocked.enqueue(running_process, 0);
+			// END: BLK
 		}
 		else if (20 <= random && random <= 30)
 		{
 			// Move randomly new to ready "Done"
+			
 		}
 		else if (50 <= random && random <= 60)
 		{
 			// Move randomly run to terminate
 			// BEGIN: TRM
 			run = nullptr;
-			current_process->setTT(current_time);
+			running_process->setTT(current_time);
 			// Add to terminate queue
-			terminate.enqueue(current_process);
+			terminate.enqueue(running_process);
 			// END: TRM
 		}
 		else {
 			// BEGIN: RUN
-			current_process->setremaining_time(current_process->getremaining_time(current_time) - 1);
-			if (current_process->getremaining_time(current_time) == 0)
+			running_process->setremaining_time(running_process->getremaining_time(current_time) - 1);
+			if (running_process->getremaining_time(current_time) == 0)
 			{
 				// BEGIN: TRM
 				run = nullptr;
-				current_process->setTT(current_time);
+				running_process->setTT(current_time);
 				// Add to terminate queue
-				terminate.enqueue(current_process);
+				terminate.enqueue(running_process);
 				// END: TRM
 			}
 			// END: RUN
 		}
 	}
-	if (!isBusy(current_process))
+	if (!isBusy(running_process))
 	{
 		ready.peekFront(*&run); // should we peek and then delete?
 		ready.DeleteFirst();
@@ -166,6 +145,6 @@ void FCFS::ScheduleAlgo(int current_time, PriorityQueue <Process*>& blocked, Lin
 int FCFS::GetReadyCount()
 {
 	int ReadyCount;
-	ReadyCount =ready.getCount();
+	ReadyCount = ready.getCount();
 	return ReadyCount;
 }

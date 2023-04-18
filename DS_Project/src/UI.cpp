@@ -82,11 +82,6 @@ void UI::stepbystep()
 	Sleep(1000);
 }
 
-void UI::setcheck(LinkedList <Processor*> check)
-{
-	this->check = check;
-}
-
 void UI::interactive()
 {
 	
@@ -112,8 +107,6 @@ void UI::printRDY(PriorityQueue<Processor*>& processors, int TOTALprocessors){
 	{
 		Processor* p;
 		processors.dequeue(p);
-		// p->printRDY(); goes to another function in ui from FCFS
-		// printProcessorProcesses(processor )					// function inside ui : takes processor , print processes inside processor
 		printProcessorProceesesRDY(p);
 
 		processors.enqueue(p, p->gettotal());
@@ -173,27 +166,15 @@ void UI::printTRM(PriorityQueue<Processor*>& processors, int TOTALprocessors, Li
 void UI::printNextTimeStep(){
 	std::cout << "PRESS ANY KEY TO MOVE TO NEXT STEP !" << std::endl;
     // std::cin.get();
-
 }
 void UI::printProcessorProceesesRDY(Processor* processor)
 {
-
-	// print 	processor 1 [FCFS]: 7 RDY: 12, 113, 116, 245, 9, 105, 75
 	std::cout << "processor " << processor->getID() << " [FCFS]: " << processor->GetReadyCount() << " RDY: ";
-	// ready.PrintList();
 	if (processor->GetReadyCount() > 0)
 	{
 		Node<Process*>* p;
 		std::string pids = processor->getRDYPIDs();
 		std::cout << pids;
-		// ready.peekHead(p);
-		// while (p)
-		// {
-		// 	std::cout << p->getItem()->getPID();
-		// 	std::cout << ", ";
-		// 	p = p->getNext();
-		// }
 	}
 	std::cout << std::endl;
-
 }

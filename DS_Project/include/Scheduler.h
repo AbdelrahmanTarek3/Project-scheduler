@@ -44,8 +44,6 @@ private:
 	PriorityQueue <Process*> blocked;	    //key is finishing time
 	LinkedQueue <Process*> terminate;		//done
 	LinkedList <Process*> orphan;			//done
-
-	LinkedList <Processor*> check;
 	
 	PriorityQueue<Processor*>processors;
 	LinkedList <MyPair> pairs;
@@ -55,7 +53,7 @@ public:
 	Scheduler();
 
 	void simulate();
-	void openfile();
+	void readfile();
 	void processordata();
 	void processesdata();
 	

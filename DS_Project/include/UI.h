@@ -10,7 +10,6 @@ class UI
 private:
 	std::string filename;
 	int mode;
-	LinkedList <Processor*> check;
 public:
 	UI();
 	void startscreen();
@@ -19,7 +18,6 @@ public:
 	void stepbystep();
 	void silent();
 	void setmode(int s);
-	void setcheck(LinkedList <Processor*> check);
 	void setfile(std::string file);
 	std::string getfile();
 	void detectenter();

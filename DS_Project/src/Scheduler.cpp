@@ -1,6 +1,7 @@
 # include <iostream>
 // using namespace std;
 # include <string>
+#include <ctime>
 # include "Scheduler.h"
 # include <fstream>
 # include "Processor.h"
@@ -15,10 +16,9 @@ Scheduler::Scheduler()
 
 void Scheduler::simulate()
 {
-	ui->setcheck(check);
 	ui->startscreen();
-	openfile();
-	// int count = 0;
+	readfile();
+	srand(time(nullptr));
 
 	if (TOTALprocessors != 0)
 	{
@@ -39,15 +39,6 @@ void Scheduler::simulate()
 				processors.dequeue(pp);	// remove front processor
 				processors.enqueue(pp, pp->gettotal());	// add as last processor
 				
-				if (check.isEmpty() == true)
-				{
-					check.InsertBeg(pp);
-				}
-				else
-				{
-					check.InsertEnd(pp);
-				}
-
 				newprocesses.dequeue(queuefirstprocess);	// remove the process from the front
 			}
 
@@ -72,77 +63,12 @@ void Scheduler::simulate()
 
 			ui->printNextTimeStep();
 			time++;
-
-		// if (check.isEmpty() == false)
-		// {
-		// 	while(check.peekFront(pp))
-		// 	{
-		// 		if (pp->getpid() == 0)
-		// 		{
-		// 			pp->setpid((pp->getready())->getPID());
-		// 			check.InsertEnd(pp);
-		// 			check.DeleteFirst();
-		// 		}
-		// 		else
-		// 		{
-		// 			srand(time(0));
-		// 			int random = ((rand() % (100 + 1)));
-		// 			if (random >= 1 && random <= 15)
-		// 			{
-		// 				blocked.enqueue(pp->getready());
-		// 				pp->readydel();
-		// 				pp->setpid(0);
-		// 				check.DeleteFirst();
-		// 				//change the total ct
-		// 			}
-		// 			else if (random >= 20 && random <= 30)
-		// 			{
-		// 				pp->setpid(0);
-		// 				check.DeleteFirst();
-		// 			}
-		// 			else if (random >= 50 && random <= 60)
-		// 			{
-		// 				terminate.enqueue(pp->getready());
-		// 				pp->readydel();
-		// 				pp->setpid(0);
-		// 				check.DeleteFirst();
-		// 			}
-		// 		}
-		// 	}
-		// }
-		// if (blocked.peek(p1))
-		// {
-		// 	srand(time(0));
-		// 	int random = ((rand() % (100 + 1)));
-		// 	if (random < 10)
-		// 	{
-		// 		if (FCFSN != 0)	// need to add another condiiton if all have process
-		// 		{
-		// 			FCFS.peek(pp);
-		// 			pp->setready(p1);
-		// 			pp->settotal(p1->getCT(),1);
-		// 			FCFS.dequeue(pp);
-		// 			FCFS.enqueue(pp, pp->gettotal());
-		// 			check.InsertBeg(pp);
-		// 			blocked.dequeue(p1);
-		// 		}
-		// 		else if (SJFN != 0)
-		// 		{
-		// 			SJF.peek(pp);
-		// 			pp->setready(p1);
-		// 			pp->settotal(p1->getCT(),1);
-		// 			SJF.dequeue(pp);
-		// 			SJF.enqueue(pp, pp->gettotal());
-		// 			check.InsertBeg(pp);
-		// 			blocked.dequeue(p1);
-		// 		}
-		// 	}
 		}
 	}
 }
 
 
-void Scheduler::openfile()
+void Scheduler::readfile()
 {
 	std::string inputname = ui->getfile();
 	input.open(inputname, std::ios::in);
