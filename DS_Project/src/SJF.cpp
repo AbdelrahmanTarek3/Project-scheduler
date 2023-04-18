@@ -32,9 +32,64 @@ void SJF::setready(Process* px)
 
 }
 
-void SJF::ScheduleAlgo(int time, PriorityQueue <Process*>& blocked, LinkedQueue <Process*>& terminate)
+void SJF:: ScheduleAlgo(int current_time, PriorityQueue <Process*>& blocked, LinkedQueue <Process*>& terminate)
+
 {
-	ready.dequeue(*&run);
+	int random = std::rand() % 100 + 1;
+	if (1 <= random && random <= 10)
+	{
+		// Move randomly blocked to ready
+		// BEGIN: BLK
+		if (!blocked.isEmpty())
+		{
+			Process* blocked_process;
+			blocked.dequeue(blocked_process);
+			setready(blocked_process);
+		}
+		// END: RDY
+	}
+	Process* running_process;
+	if (isBusy(running_process))
+	{
+		if (1 <= random && random <= 15)
+		{
+			// Move randomly run to blocked
+			// BEGIN: BLK
+			run = nullptr;
+			// Add to blocked queue
+			blocked.enqueue(running_process, 0);
+			// END: BLK
+		}
+		else if (20 <= random && random <= 30)
+		{
+			// Move randomly new to ready "Done"
+
+		}
+		else if (50 <= random && random <= 60)
+		{
+			// Move randomly run to terminate
+			// BEGIN: TRM
+			run = nullptr;
+			running_process->setTT(current_time);
+			// Add to terminate queue
+			terminate.enqueue(running_process);
+			// END: TRM
+		}
+		else {
+			// BEGIN: RUN
+			running_process->setremaining_time(running_process->getremaining_time(current_time) - 1);
+			if (running_process->getremaining_time(current_time) == 0)
+			{
+				// BEGIN: TRM
+				run = nullptr;
+				running_process->setTT(current_time);
+				// Add to terminate queue
+				terminate.enqueue(running_process);
+				// END: TRM
+			}
+			// END: RUN
+		}
+	}
 }
 
 std::string SJF::getRDYPIDs()

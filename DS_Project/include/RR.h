@@ -14,7 +14,7 @@ public:
 	~RR();
 	void setTimeSlice(int TimeSlice);
 	int getTimeSlice();
-	virtual void ScheduleAlgo(int time, PriorityQueue <Process*>& blocked, LinkedQueue <Process*>& terminate);
+	virtual void ScheduleAlgo(int current_time, PriorityQueue <Process*>& blocked, LinkedQueue <Process*>& terminate);
 	void setready(Process* p1);
 	bool isBusy(Process* run);
 

@@ -15,4 +15,5 @@ public:
 	void setready(Process* p1);
 	virtual int GetReadyCount();
 	std::string getRDYPIDs();
+	void KillProcessId();
 };

@@ -10,7 +10,7 @@ public:
 	SJF(int id, int rtf, int maxw, int stl, int fp);
 	SJF();
 	~SJF();
-	virtual void ScheduleAlgo(int time, PriorityQueue <Process*>& blocked, LinkedQueue <Process*>& terminate);
+	virtual void ScheduleAlgo(int current_time, PriorityQueue <Process*>& blocked, LinkedQueue <Process*>& terminate);
 	virtual void setready(Process* p1);
 	// bool isBusy(Process* run);
 
