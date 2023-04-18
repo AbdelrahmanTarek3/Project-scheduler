@@ -16,7 +16,6 @@ private:
 	
 	Process* next;
 public:
-	Process();
 	Process(int at, int pid, int ct, int nio);
 	
 	void setPID(int i);

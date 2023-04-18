@@ -1,5 +1,4 @@
 #pragma once
-// using namespace std;
 # include "LinkedQueue.h"
 # include "PriorityQueue.h"
 # include "LinkedList.h"
@@ -16,7 +15,6 @@ private:
 	int processid = 0;
 public:
 	Processor();
-	// Processor(int id, int rtf, int maxw, int stl, int fp);
 
 	void setpid(int idd);
 	virtual void setready(Process* p2) = 0;// the set ready pure virtual

@@ -1,9 +1,10 @@
-#include <sstream>
-#include <cstdlib>
-#include "FCFS.h"
-#include "Scheduler.h"
+# include <sstream>
+# include <cstdlib>
+# include "FCFS.h"
+# include "Scheduler.h"
 # include "Process.h"
-#include "LinkedList.h"
+# include "LinkedList.h"
+
 FCFS::FCFS(int id, int rtf, int maxw, int stl, int fp)
  : Processor()
 {

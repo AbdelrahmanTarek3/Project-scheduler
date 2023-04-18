@@ -1,14 +1,13 @@
 # include <iostream>
-// using namespace std;
 # include <string>
-# include "../include/UI.h"
 # include <Windows.h>
-#include"PriorityQueue.h"
-#include"Processor.h"
+# include "UI.h"
+# include "PriorityQueue.h"
+# include "Processor.h"
 
 UI::UI()
 {
-	setmode(1);
+	setmode(2);
 }
 
 void UI::startscreen()
@@ -65,6 +64,11 @@ void UI::printscreen()
 void UI::setmode(int ss)
 {
 	mode = ss;
+}
+
+int UI::getmode()
+{
+	return mode;
 }
 
 void UI::setfile(std::string file)
@@ -164,8 +168,11 @@ void UI::printTRM(PriorityQueue<Processor*>& processors, int TOTALprocessors, Li
 	std::cout << std::endl;
 }
 void UI::printNextTimeStep(){
-	std::cout << "PRESS ANY KEY TO MOVE TO NEXT STEP !" << std::endl;
-    // std::cin.get();
+	if (getmode() == 1)
+	{
+		std::cout << "PRESS ANY KEY TO MOVE TO NEXT STEP !" << std::endl;
+		std::cin.get();
+	}
 }
 void UI::printProcessorProceesesRDY(Processor* processor)
 {

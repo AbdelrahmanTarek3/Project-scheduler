@@ -6,7 +6,6 @@ class RR : public Processor
 {
 private:
 	LinkedQueue <Process*> ready;
-	// Process* run;
 	int TimeSlice;
 public:
 

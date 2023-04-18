@@ -1,8 +1,9 @@
-#include <sstream>
-#include"RR.h"
-#include "Scheduler.h"
+# include <sstream>
+# include "RR.h"
+# include "Scheduler.h"
 # include "Process.h"
-#include "LinkedQueue.h"
+# include "LinkedQueue.h"
+
 RR::RR(int id, int rtf, int maxw, int stl, int fp, int TimeSlice)
  : Processor()
 {
@@ -63,5 +64,4 @@ int RR::GetReadyCount()
 	int ReadyCount;
 	ReadyCount = ready.getcount();
 	return ReadyCount;
-
 }

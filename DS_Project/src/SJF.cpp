@@ -1,8 +1,9 @@
-#include <sstream>
-#include"SJF.h"
-#include "Scheduler.h"
+# include <sstream>
+# include "SJF.h"
+# include "Scheduler.h"
 # include "Process.h"
-#include "PriorityQueue.h"
+# include "PriorityQueue.h"
+
 SJF::SJF(int id, int rtf, int maxw, int stl, int fp)
  : Processor()
 {

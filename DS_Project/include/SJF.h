@@ -1,12 +1,11 @@
 #pragma once
-#include "Processor.h"
+# include "Processor.h"
 # include "Process.h"
-#include"PriorityQueue.h"
+# include "PriorityQueue.h"
 class SJF : public Processor
 {
 private:
 	PriorityQueue<Process*> ready;
-	// Process* run;
 public:
 	SJF(int id, int rtf, int maxw, int stl, int fp);
 	SJF();

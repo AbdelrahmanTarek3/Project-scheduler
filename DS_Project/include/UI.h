@@ -3,7 +3,7 @@
 # include <string>
 # include "LinkedList.h"
 # include "Processor.h"
-#include"PriorityQueue.h"
+# include "PriorityQueue.h"
 
 class UI
 {
@@ -18,6 +18,7 @@ public:
 	void stepbystep();
 	void silent();
 	void setmode(int s);
+	int getmode();
 	void setfile(std::string file);
 	std::string getfile();
 	void detectenter();

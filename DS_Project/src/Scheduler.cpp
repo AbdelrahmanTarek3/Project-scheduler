@@ -1,18 +1,13 @@
 # include <iostream>
-// using namespace std;
 # include <string>
-#include <ctime>
-# include "Scheduler.h"
-# include <fstream>
-# include "Processor.h"
 # include <cstdlib>
+# include <fstream>
+# include <ctime>
+# include "Scheduler.h"
+# include "Processor.h"
 # include "FCFS.h"
-#include "MyPair.h"
+# include "MyPair.h"
 
-Scheduler::Scheduler()
-{
-
-}
 
 void Scheduler::simulate()
 {
@@ -110,7 +105,7 @@ void Scheduler::processesdata()
 		input >> AT >> PID >> CT >> NIO;
 		Process* pointerr = new Process(AT, PID, CT, NIO);
 		newprocesses.enqueue(pointerr);
-		newprocesses.peek(pointerr); // Check with Usama
+		newprocesses.peek(pointerr);	// Check
 		if (NIO != 0)
 		{
 			for (int j = 0; j < NIO; j++)

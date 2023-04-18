@@ -2,11 +2,9 @@
 #ifndef LINKED_QUEUE_
 #define LINKED_QUEUE_
 
+#include <vector>
 #include "Node.h"
 #include "QueueADT.h"
-#include <vector>
-// using namespace std;
-
 
 template <typename T>
 class LinkedQueue:public QueueADT<T>

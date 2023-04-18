@@ -1,8 +1,8 @@
 #pragma once
 # include <string>
 # include <iostream>
-# include "UI.h"
 # include <fstream>
+# include "UI.h"
 # include "LinkedQueue.h"
 # include "QueueADT.h"
 # include "Processor.h"
@@ -13,7 +13,6 @@
 # include "RR.h"
 # include "FCFS.h"
 # include "SJF.h"
-// using namespace std;
 
 class Scheduler
 {
@@ -50,8 +49,6 @@ private:
 
 
 public:
-	Scheduler();
-
 	void simulate();
 	void readfile();
 	void processordata();

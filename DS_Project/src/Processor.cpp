@@ -1,19 +1,9 @@
-// using namespace std;
-#include "../include/Processor.h"
+#include "Processor.h"
 
 Processor::Processor()
 {
 	run = nullptr;
 }
-
-// Processor::Processor(int id, int rtf, int maxw, int stl, int fp)
-// {
-// 	setID(id);
-// 	setRTF(rtf);
-// 	setMaxW(maxw);
-// 	setFP(fp);
-// 	setSTL(stl);
-// }
 
 void Processor::setFP(int ff)
 {
@@ -86,23 +76,6 @@ void Processor::print()
 {
 
 }
-// void Processor::setready(Process* p2)
-// {
-// 	if (ready.isEmpty() == true)
-// 	{
-// 		ready.InsertBeg(p2);
-// 	}
-// 	else
-// 	{
-// 		ready.InsertEnd(p2);
-// 	}
-// }
-
-// Process* Processor::getready()
-// {
-// 	ready.peekFront(p1);
-// 	return p1;
-// }
 
 void Processor::setpid(int idd)
 {
@@ -113,14 +86,6 @@ int Processor::getpid()
 {
 	return processid;
 }
-
-// void Processor::readydel()
-// {
-// 	if (ready.isEmpty() == false)
-// 	{
-// 		ready.DeleteFirst();
-// 	}
-// }
 
 bool Processor::isBusy(Process*& run)
 {
