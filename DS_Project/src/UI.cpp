@@ -113,7 +113,7 @@ void UI::printRDY(PriorityQueue<Processor*>& processors, int TOTALprocessors){
 		processors.dequeue(p);
 		printProcessorProceesesRDY(p);
 
-		processors.enqueue(p, p->gettotal());
+		processors.enqueue(p, 0); // p->gettotal()
 	}
 }
 void UI::printBLK(PriorityQueue<Processor*>& processors, int TOTALprocessors, PriorityQueue <Process*>& block){
@@ -140,7 +140,7 @@ void UI::printRUN(PriorityQueue<Processor*>& processors, int TOTALprocessors){
 		Process* running;
 		if (p->isBusy(running))
 			running_count += 1;
-		processors.enqueue(p, p->gettotal());
+		processors.enqueue(p, 0);
 	}
 	std::cout << running_count << " RUN: ";
 	for (int i = 0; i < TOTALprocessors; i++)
@@ -150,7 +150,7 @@ void UI::printRUN(PriorityQueue<Processor*>& processors, int TOTALprocessors){
 		Process* running;
 		if (p->isBusy(running))
 			std::cout << running->getPID() << "(P" << p->getID() << "), ";
-		processors.enqueue(p, p->gettotal());
+		processors.enqueue(p, 0);
 	}
 	std::cout << std::endl;
 }
@@ -176,7 +176,7 @@ void UI::printNextTimeStep(){
 }
 void UI::printProcessorProceesesRDY(Processor* processor)
 {
-	std::cout << "processor " << processor->getID() << " [FCFS]: " << processor->GetReadyCount() << " RDY: ";
+	std::cout << "processor " << processor->getID() << " [" << processor->getname() << "]: " << processor->GetReadyCount() << " RDY: ";
 	if (processor->GetReadyCount() > 0)
 	{
 		Node<Process*>* p;

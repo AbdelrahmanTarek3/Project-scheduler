@@ -16,7 +16,6 @@ public:
 	int getTimeSlice();
 	virtual void ScheduleAlgo(int current_time, PriorityQueue <Process*>& blocked, LinkedQueue <Process*>& terminate);
 	void setready(Process* p1);
-	bool isBusy(Process* run);
 
 	std::string getRDYPIDs();
 	virtual int GetReadyCount();

@@ -42,6 +42,12 @@ void Processor::settotal(int t, int op)
 	}
 }
 
+void Processor::setname(std::string name)
+{
+	this->name = name;
+}
+
+
 int Processor::getFP()
 {
 	return FP;
@@ -86,6 +92,12 @@ int Processor::getpid()
 {
 	return processid;
 }
+
+std::string Processor::getname()
+{
+	return name;
+}
+
 
 bool Processor::isBusy(Process*& run)
 {

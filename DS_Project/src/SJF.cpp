@@ -12,7 +12,7 @@ SJF::SJF(int id, int rtf, int maxw, int stl, int fp)
 	setMaxW(maxw);
 	setSTL(stl);
 	setFP(fp);
-
+	setname("SJF");
 }
 
 SJF::SJF()
@@ -28,7 +28,7 @@ SJF::~SJF()
 void SJF::setready(Process* px)
 {
 	
-	ready.enqueue(px, px->getAT());
+	ready.enqueue(px, 0);
 
 }
 
@@ -90,20 +90,26 @@ void SJF:: ScheduleAlgo(int current_time, PriorityQueue <Process*>& blocked, Lin
 			// END: RUN
 		}
 	}
+	// moving from rdy to run by checking if the processor is busy
+	if (!isBusy(running_process))
+	{
+		// First come "Front" First serve
+		ready.dequeue(*&run);
+	}
 }
 
 std::string SJF::getRDYPIDs()
 {
 	std::ostringstream oss;
-    // bool first = true;
-    // for (auto it = ready.begin(); it != ready.end(); ++it) {
-    //     if (!first) {
-    //         oss << ",";
-    //     }
-    //     oss << (*it)->getPID();
-    //     first = false;
-    // }
-    return oss.str();	
+	for (int i = 0; i < ready.getcount(); i++)
+	{
+		Process *p;
+		ready.dequeue(p);
+		oss << p->getPID();
+		oss << ",";
+		ready.enqueue(p, 0);
+	}
+    return oss.str();
 }
 int SJF::GetReadyCount()
 {

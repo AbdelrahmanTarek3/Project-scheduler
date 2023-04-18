@@ -13,7 +13,7 @@ FCFS::FCFS(int id, int rtf, int maxw, int stl, int fp)
 	setMaxW(maxw);
 	setSTL(stl);
 	setFP(fp);
-	
+	setname("FCFS");
 }
 
 FCFS::FCFS()
@@ -77,7 +77,6 @@ void FCFS::ScheduleAlgo(int current_time, PriorityQueue <Process*>& blocked, Lin
 		}
 	}
 
-
 	int random = std::rand() % 100 + 1;
 	if (1 <= random && random <= 10)
 	{
@@ -136,14 +135,12 @@ void FCFS::ScheduleAlgo(int current_time, PriorityQueue <Process*>& blocked, Lin
 	// moving from rdy to run by checking if the processor is busy
 	if (!isBusy(running_process))
 	{
-		ready.peekFront(*&run); // should we peek and then delete?
+		// First come "Front" First serve
+		ready.peekFront(*&run);
 		ready.DeleteFirst();
-		if (run != nullptr)
-			run->setremaining_time(run->getCT());
 	}
-
-
 }
+
 int FCFS::GetReadyCount()
 {
 	int ReadyCount;

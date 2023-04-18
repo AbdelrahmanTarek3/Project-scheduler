@@ -13,6 +13,7 @@ private:
 	// Total CPU Time gettotal, settotal
 	int totalCT;	
 	int processid = 0;
+	std::string name;
 public:
 	Processor();
 
@@ -24,10 +25,13 @@ public:
 	void setSTL(int stl);
 	void setFP(int fp);
 	void settotal(int t, int op);
+	void setname(std::string name);
 	void readydel();
+
 	virtual void ScheduleAlgo(int time, PriorityQueue <Process*>& blocked, LinkedQueue <Process*>& terminate) = 0; // added the pure virtual function
 	void print();
 	virtual std::string getRDYPIDs() = 0;
+	std::string getname();
 	bool isBusy(Process*& run);
 
 	int getpid();

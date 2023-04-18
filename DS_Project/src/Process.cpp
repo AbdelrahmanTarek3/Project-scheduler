@@ -6,6 +6,7 @@ Process::Process(int at, int pid, int ct, int nio)
     setAT(at);
     setCT(ct);
     setIO_number(nio);
+    setremaining_time(ct);
 }
 
 void Process::setPID(int i)

@@ -13,7 +13,7 @@ RR::RR(int id, int rtf, int maxw, int stl, int fp, int TimeSlice)
 	setSTL(stl);
 	setFP(fp);
 	setTimeSlice(TimeSlice);
-
+	setname("RR");
 }
 
 RR::RR()
@@ -99,20 +99,26 @@ void RR::ScheduleAlgo(int current_time, PriorityQueue <Process*>& blocked, Linke
 			// END: RUN
 		}
 	}
+	// moving from rdy to run by checking if the processor is busy
+	if (!isBusy(running_process))
+	{
+		// First come "Front" First serve
+		ready.dequeue(*&run);
+	}
 }
 
 
 std::string RR::getRDYPIDs()
 {
 	std::ostringstream oss;
-    // bool first = true;
-    // for (auto it = ready.begin(); it != ready.end(); ++it) {
-    //     if (!first) {
-    //         oss << ",";
-    //     }
-    //     oss << (*it)->getPID();
-    //     first = false;
-    // }
+	for (int i = 0; i < ready.getcount(); i++)
+	{
+		Process* curr;
+		ready.dequeue(curr);
+		oss << curr->getPID();
+		oss << ",";
+		ready.enqueue(curr);
+	}
     return oss.str();
 }
 

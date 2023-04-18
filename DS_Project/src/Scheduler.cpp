@@ -32,10 +32,19 @@ void Scheduler::simulate()
 				queuefirstprocess->setremaining_time(queuefirstprocess->getCT());
 				pp->settotal(queuefirstprocess->getCT(), 1);	// Update total CPU time for the processor
 				processors.dequeue(pp);	// remove front processor
-				processors.enqueue(pp, pp->gettotal());	// add as last processor
+				processors.enqueue(pp, 0);	// pp->gettotal() add as last processor
 				
 				newprocesses.dequeue(queuefirstprocess);	// remove the process from the front
 			}
+			// for (int i = 0; i < TOTALprocessors; i++)
+			// {
+			// 	Processor *p;
+			// 	processors.dequeue(p);
+			// 	if (p->getID() == 1)
+				
+			// 	processors.enqueue(p, 0); // p->gettotal()
+			// }
+
 
 			// Check for finished processes
 			// Move ready processes to Run
@@ -44,7 +53,7 @@ void Scheduler::simulate()
 				Processor *p;
 				processors.dequeue(p);
 				p->ScheduleAlgo(time, blocked, terminate);
-				processors.enqueue(p, p->gettotal());
+				processors.enqueue(p, 0); // p->gettotal()
 			}
 
 			// Print Ready for processors
@@ -83,14 +92,14 @@ void Scheduler::processordata()
 	for (int i = 1; i <= FCFSN; i++)
 	{
 		Processor* pointer = new FCFS(i, RTF, MAXW, STL, FP);
-		processors.enqueue(pointer,0);
+		processors.enqueue(pointer, 0);
 	}
-	for (int i = FCFSN; i < (FCFSN+SJFN); i++)
+	for (int i = FCFSN+1; i <= (FCFSN+SJFN); i++)
 	{
 		Processor* pointer = new SJF(i, RTF, MAXW, STL, FP);
 		processors.enqueue(pointer, 0);
 	}
-	for (int i = (FCFSN + SJFN); i < (FCFSN + SJFN + RRN); i++)
+	for (int i = (FCFSN + SJFN + 1); i <= (FCFSN + SJFN + RRN); i++)
 	{
 		Processor* pointer = new RR(i, RTF, MAXW, STL, FP, TS);
 		processors.enqueue(pointer, 0);
