@@ -1,4 +1,6 @@
 #include <sstream>
+#include <cstdlib>
+#include <ctime>
 #include "FCFS.h"
 #include "Scheduler.h"
 # include "Process.h"
@@ -56,68 +58,99 @@ std::string FCFS::getRDYPIDs()
 }
 
 
-void FCFS::ScheduleAlgo(int time, LinkedQueue <Process*>& terminate)
+void FCFS::ScheduleAlgo(int current_time, PriorityQueue <Process*>& blocked, LinkedQueue <Process*>& terminate)
 {
-	// if (time == 3) {
+	// if (current_time == 3) {
 	// 	std::cout << "2process in ready";
 	// }
-	// else if (time == 4) {
+	// else if (current_time == 4) {
 	// 	std::cout << "1pc in run, 1 rdy";
 	// }
-	// else if (time == 5) {
+	// else if (current_time == 5) {
 	// 	std::cout << "1 new, 2 trm";
 	// }
-	// else if (time == 6) {
+	// else if (current_time == 6) {
 	// 	std::cout << "1new, 1 run, 2 trm";
 	// }
-	// else if (time == 7) {
+	// else if (current_time == 7) {
 	// 	std::cout << "test";
 	// }
-	// else if (time == 8) {
+	// else if (current_time == 8) {
 	// 	std::cout << "test";
 	// }
-	// else if (time == 9) {
+	// else if (current_time == 9) {
 	// 	std::cout << "test";
 	// }
-	// else if (time == 10) {
+	// else if (current_time == 10) {
 	// 	std::cout << "test";
 	// }
-	// else if (time == 11) {
+	// else if (current_time == 11) {
 	// 	std::cout << "test";
 	// }
-	// else if (time == 12) {
+	// else if (current_time == 12) {
 	// 	std::cout << "test";
 	// }
-	// else if (time == 13) {
+	// else if (current_time == 13) {
 	// 	std::cout << "1 run, 3 trm";
 	// }
-	// else if (time == 14) {
+	// else if (current_time == 14) {
 	// 	std::cout << "4 trm";
 	// }
-	// else if (time == 15) {
+	// else if (current_time == 15) {
 	// 	std::cout << "4 trm";
 	// }
-	// else if (time == 16) {
+	// else if (current_time == 16) {
 	// 	std::cout << "4 trm";
 	// }
-	// else if (time == 17) {
+	// else if (current_time == 17) {
 	// 	std::cout << "4 trm";
 	// }
-	// else if (time == 18) {
+	// else if (current_time == 18) {
 	// 	std::cout << "4 trm";
 	// }
+
+	srand(time(0));
+	int random = ((rand() % (100 + 1)));
 
 	Process* current_process;
 	if (isBusy(current_process))
 	{
-		current_process->setremaining_time(current_process->getremaining_time(time) - 1);
-		if (current_process->getremaining_time(time) == 0)
+		if (1 <= random && random <= 15)
 		{
-			// terminate
+			// Move randomly run to blocked
+			// // BEGIN: BLK
+			// run = nullptr;
+			// // Add to blocked queue
+			// blocked.enqueue(current_process, 0);
+			// // END: BLK
+		}
+		else if (20 <= random && random <= 30)
+		{
+			// Move randomly new to ready "Done"
+		}
+		else if (50 <= random && random <= 60)
+		{
+			// Move randomly run to terminate
+			// BEGIN: TRM
 			run = nullptr;
-			current_process->setTT(time);
+			current_process->setTT(current_time);
 			// Add to terminate queue
 			terminate.enqueue(current_process);
+			// END: TRM
+		}
+		else {
+			// BEGIN: RUN
+			current_process->setremaining_time(current_process->getremaining_time(current_time) - 1);
+			if (current_process->getremaining_time(current_time) == 0)
+			{
+				// BEGIN: TRM
+				run = nullptr;
+				current_process->setTT(current_time);
+				// Add to terminate queue
+				terminate.enqueue(current_process);
+				// END: TRM
+			}
+			// END: RUN
 		}
 	}
 	if (!isBusy(current_process))

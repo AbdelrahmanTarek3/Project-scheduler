@@ -12,7 +12,7 @@ public:
 	FCFS(int id, int rtf, int maxw, int stl, int fp);
 	FCFS();
 	~FCFS();
-	virtual void ScheduleAlgo(int time, LinkedQueue <Process*>& terminate);
+	virtual void ScheduleAlgo(int time, PriorityQueue <Process*>& blocked, LinkedQueue <Process*>& terminate);
 	void setready(Process* p1);
 	// bool isBusy(Process* run);
 	virtual int GetReadyCount();

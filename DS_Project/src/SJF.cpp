@@ -31,7 +31,7 @@ void SJF::setready(Process* px)
 
 }
 
-void SJF::ScheduleAlgo(int time, LinkedQueue <Process*>& terminate)
+void SJF::ScheduleAlgo(int time, PriorityQueue <Process*>& blocked, LinkedQueue <Process*>& terminate)
 {
 	ready.dequeue(*&run);
 }

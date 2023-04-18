@@ -1,6 +1,7 @@
 #pragma once
 // using namespace std;
 # include "LinkedQueue.h"
+# include "PriorityQueue.h"
 # include "LinkedList.h"
 # include "Process.h"
 
@@ -26,7 +27,7 @@ public:
 	void setFP(int fp);
 	void settotal(int t, int op);
 	void readydel();
-	virtual void ScheduleAlgo(int time, LinkedQueue <Process*>& terminate) = 0; // added the pure virtual function
+	virtual void ScheduleAlgo(int time, PriorityQueue <Process*>& blocked, LinkedQueue <Process*>& terminate) = 0; // added the pure virtual function
 	void print();
 	virtual std::string getRDYPIDs() = 0;
 	bool isBusy(Process*& run);

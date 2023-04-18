@@ -40,7 +40,7 @@ void RR::setready(Process* px)
 	ready.enqueue(px);
 }
 
-void RR::ScheduleAlgo(int time, LinkedQueue <Process*>& terminate)
+void RR::ScheduleAlgo(int time, PriorityQueue <Process*>& blocked, LinkedQueue <Process*>& terminate)
 {
 	ready.dequeue(*&run); 
 }

@@ -57,7 +57,7 @@ void Scheduler::simulate()
 			{
 				Processor *p;
 				processors.dequeue(p);
-				p->ScheduleAlgo(time, terminate);
+				p->ScheduleAlgo(time, blocked, terminate);
 				processors.enqueue(p, p->gettotal());
 			}
 
