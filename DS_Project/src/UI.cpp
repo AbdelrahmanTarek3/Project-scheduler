@@ -24,7 +24,7 @@ void UI::startscreen()
 	std::cout << "Please enter the input file of your data in the following format (filename.txt): ";
 	std::string filee;
 	// std::cin >> filee;
-	filee = "fcfs.txt";
+	filee = "prc_30.txt";
 	setfile(filee);
 	
 	//std::cout << "Thanks for your patience,";
@@ -160,9 +160,9 @@ void UI::printTRM(PriorityQueue<Processor*>& processors, int TOTALprocessors, Li
 	for (int i = 0; i < terminate.getcount(); i++)
 	{
 		Process* proc;
-		terminate.peek(proc);
-		std::cout << proc->getPID() << ", ";
+		// terminate.peek(proc);
 		terminate.dequeue(proc);
+		std::cout << proc->getPID() << ", ";
 		terminate.enqueue(proc);
 	}
 	std::cout << std::endl;
