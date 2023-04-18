@@ -19,6 +19,6 @@ public:
 	void setready(Process* p1);
 	bool isBusy(Process* run);
 
-	void printRDY();
+	std::string getRDYPIDs();
 	virtual int GetReadyCount();
 };

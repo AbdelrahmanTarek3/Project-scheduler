@@ -14,8 +14,7 @@ public:
 	~FCFS();
 	virtual void ScheduleAlgo(int time, LinkedQueue <Process*>& terminate);
 	void setready(Process* p1);
-	virtual LinkedList <Process*> getready();
 	// bool isBusy(Process* run);
 	virtual int GetReadyCount();
-	
+	std::string getRDYPIDs();
 };

@@ -1,3 +1,4 @@
+#include <sstream>
 #include"RR.h"
 #include "Scheduler.h"
 # include "Process.h"
@@ -43,12 +44,21 @@ void RR::ScheduleAlgo(int time, LinkedQueue <Process*>& terminate)
 {
 	ready.dequeue(*&run); 
 }
-
-void RR::printRDY()
+std::string RR::getRDYPIDs()
 {
-	
+	std::ostringstream oss;
+    // bool first = true;
+    // for (auto it = ready.begin(); it != ready.end(); ++it) {
+    //     if (!first) {
+    //         oss << ",";
+    //     }
+    //     oss << (*it)->getPID();
+    //     first = false;
+    // }
+    return oss.str();
 }
-int SJF::GetReadyCount()
+
+int RR::GetReadyCount()
 {
 	int ReadyCount;
 	ReadyCount = ready.getcount();

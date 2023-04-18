@@ -106,7 +106,7 @@ void UI::detectenter()
 
 
 
-void UI::printRDY(PriorityQueue<Processor*>processors, int TOTALprocessors){
+void UI::printRDY(PriorityQueue<Processor*>& processors, int TOTALprocessors){
 	std::cout << "------------- RDY Processes -------------" << std::endl;
 	for (int i = 0; i < TOTALprocessors; i++)
 	{
@@ -123,7 +123,7 @@ void UI::printBLK(){
 	std::cout << "------------- BLK Processes -------------" << std::endl;
 
 }
-void UI::printRUN(PriorityQueue<Processor*>processors, int TOTALprocessors){
+void UI::printRUN(PriorityQueue<Processor*>& processors, int TOTALprocessors){
 	std::cout << "------------- RUN Processes -------------" << std::endl;
 	int running_count = 0;
 	for (int i = 0; i < TOTALprocessors; i++)
@@ -147,7 +147,7 @@ void UI::printRUN(PriorityQueue<Processor*>processors, int TOTALprocessors){
 	}
 	std::cout << std::endl;
 }
-void UI::printTRM(PriorityQueue<Processor*>processors, int TOTALprocessors, LinkedQueue <Process*> terminate){
+void UI::printTRM(PriorityQueue<Processor*>& processors, int TOTALprocessors, LinkedQueue <Process*>& terminate){
 	std::cout << "------------- TRM Processes -------------" << std::endl;
 	std::cout << terminate.getcount() << " TRM: ";
 	for (int i = 0; i < terminate.getcount(); i++)
@@ -174,13 +174,15 @@ void UI::printProcessorProceesesRDY(Processor* processor)
 	if (processor->GetReadyCount() > 0)
 	{
 		Node<Process*>* p;
-		ready.peekHead(p);
-		while (p)
-		{
-			std::cout << p->getItem()->getPID();
-			std::cout << ", ";
-			p = p->getNext();
-		}
+		std::string pids = processor->getRDYPIDs();
+		std::cout << pids;
+		// ready.peekHead(p);
+		// while (p)
+		// {
+		// 	std::cout << p->getItem()->getPID();
+		// 	std::cout << ", ";
+		// 	p = p->getNext();
+		// }
 	}
 	std::cout << std::endl;
 

@@ -9,6 +9,7 @@
 # include "Process.h"
 # include "LinkedList.h"
 # include "PriorityQueue.h"
+# include "MyPair.h"
 # include "RR.h"
 # include "FCFS.h"
 # include "SJF.h"

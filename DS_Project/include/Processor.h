@@ -28,7 +28,7 @@ public:
 	void readydel();
 	virtual void ScheduleAlgo(int time, LinkedQueue <Process*>& terminate) = 0; // added the pure virtual function
 	void print();
-	virtual void printRDY() = 0;
+	virtual std::string getRDYPIDs() = 0;
 	bool isBusy(Process*& run);
 
 	int getpid();

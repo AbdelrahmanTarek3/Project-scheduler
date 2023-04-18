@@ -1,3 +1,4 @@
+#include <sstream>
 #include "FCFS.h"
 #include "Scheduler.h"
 # include "Process.h"
@@ -35,7 +36,24 @@ void FCFS::setready(Process* px)
 		ready.InsertEnd(px);
 	}
 }
-
+std::string FCFS::getRDYPIDs()
+{
+	std::ostringstream oss;
+	Node<Process*>* curr;
+	ready.peekHead(curr);
+    while (curr != nullptr)
+    {
+        Process* p = curr->getItem();
+        // if (p->getStatus() == "ready")
+        // {
+            oss << p->getPID();
+            if (curr->getNext() != nullptr)
+                oss << ",";
+        // }
+        curr = curr->getNext();
+    }
+    return oss.str();
+}
 
 
 void FCFS::ScheduleAlgo(int time, LinkedQueue <Process*>& terminate)

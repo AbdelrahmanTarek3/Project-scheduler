@@ -1,3 +1,4 @@
+#include <sstream>
 #include"SJF.h"
 #include "Scheduler.h"
 # include "Process.h"
@@ -35,11 +36,20 @@ void SJF::ScheduleAlgo(int time, LinkedQueue <Process*>& terminate)
 	ready.dequeue(*&run);
 }
 
-void SJF::printRDY()
+std::string SJF::getRDYPIDs()
 {
-
+	std::ostringstream oss;
+    // bool first = true;
+    // for (auto it = ready.begin(); it != ready.end(); ++it) {
+    //     if (!first) {
+    //         oss << ",";
+    //     }
+    //     oss << (*it)->getPID();
+    //     first = false;
+    // }
+    return oss.str();	
 }
- int SJF ::GetReadyCount()
+int SJF::GetReadyCount()
 {
 	 int ReadyCount;
 	 ReadyCount = ready.getcount();

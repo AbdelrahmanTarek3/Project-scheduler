@@ -50,15 +50,9 @@ void Scheduler::simulate()
 
 				newprocesses.dequeue(queuefirstprocess);	// remove the process from the front
 			}
-			// Print Ready for processors
-			ui->printRDY(processors, TOTALprocessors);
-			// ui->printRDY(TOTALprocessors, processors, ....);						//done
-			// this for loop goes to ui-> printRDY();
-
-
 
 			// Check for finished processes
-			// Move ready processes to Run   //Call here schedulerAlgo
+			// Move ready processes to Run
 			for (int i = 0; i < TOTALprocessors; i++)
 			{
 				Processor *p;
@@ -67,14 +61,17 @@ void Scheduler::simulate()
 				processors.enqueue(p, p->gettotal());
 			}
 
+			// Print Ready for processors
+			ui->printRDY(processors, TOTALprocessors);
+
 			// ui->printBLK();
-			// blocked.print();
 
-			ui->printRUN(processors, TOTALprocessors);							//done
-			
-
+			ui->printRUN(processors, TOTALprocessors);
 
 			ui->printTRM(processors, TOTALprocessors, terminate);
+
+			ui->printNextTimeStep();
+			time++;
 
 		// if (check.isEmpty() == false)
 		// {
@@ -140,8 +137,6 @@ void Scheduler::simulate()
 		// 			blocked.dequeue(p1);
 		// 		}
 		// 	}
-			ui->printNextTimeStep();
-			time++;
 		}
 	}
 }
@@ -195,7 +190,7 @@ void Scheduler::processesdata()
 			for (int j = 0; j < NIO; j++)
 			{
 				char c;
-				int IO_R, int IO_D;
+				int IO_R, IO_D;
 				input >> c >> IO_R >> c >> IO_D >> c;
 				MyPair pair(IO_R, IO_D);
 				pairs.InsertBeg(pair);									//linked list best option??
