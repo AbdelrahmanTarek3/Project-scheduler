@@ -81,7 +81,7 @@ void FCFS::ScheduleAlgo(int current_time, PriorityQueue <Process*>& blocked, Lin
 	if (1 <= random && random <= 10)
 	{
 		// Move randomly blocked to ready
-		// BEGIN: RDY
+		// BEGIN: BLK
 		if (!blocked.isEmpty())
 		{
 			Process* blocked_process;
@@ -132,6 +132,7 @@ void FCFS::ScheduleAlgo(int current_time, PriorityQueue <Process*>& blocked, Lin
 			// END: RUN
 		}
 	}
+	// moving from rdy to run by checking if the processor is busy
 	if (!isBusy(running_process))
 	{
 		ready.peekFront(*&run); // should we peek and then delete?
