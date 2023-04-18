@@ -7,7 +7,7 @@
 
 UI::UI()
 {
-	setmode(2);
+	setmode(1);
 }
 
 void UI::startscreen()
