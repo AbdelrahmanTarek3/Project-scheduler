@@ -20,7 +20,7 @@ void Scheduler::simulate()
 		int time = 1;
 		while (terminate.getcount() != NP)
 		{
-			std::cout << "Current Timestep:" << time << std::endl;
+			ui->printingTImeStep(time);
 
 			// Move new processes with the arrival time == current time step to ready queue of the processor
 			Process* queuefirstprocess;
@@ -36,24 +36,18 @@ void Scheduler::simulate()
 				
 				newprocesses.dequeue(queuefirstprocess);	// remove the process from the front
 			}
-			// for (int i = 0; i < TOTALprocessors; i++)
-			// {
-			// 	Processor *p;
-			// 	processors.dequeue(p);
-			// 	if (p->getID() == 1)
-				
-			// 	processors.enqueue(p, 0); // p->gettotal()
-			// }
-
-
-			// Check for finished processes
-			// Move ready processes to Run
-			for (int i = 0; i < TOTALprocessors; i++)
+			if (time != queuefirstprocess->getAT())
 			{
-				Processor *p;
-				processors.dequeue(p);
-				p->ScheduleAlgo(time, blocked, terminate);
-				processors.enqueue(p, 0); // p->gettotal()
+				// Move ready processes to Run
+				for (int i = 0; i < TOTALprocessors; i++)
+				{
+
+					Processor* p;
+					processors.dequeue(p);
+					p->ScheduleAlgo(time, blocked, terminate);
+					processors.enqueue(p, 0); // p->gettotal()
+
+				}
 			}
 
 			// Print Ready for processors
@@ -68,6 +62,9 @@ void Scheduler::simulate()
 			ui->printNextTimeStep();
 			time++;
 		}
+
+	/*	int x;
+		std::cin >>x ;*/
 	}
 }
 

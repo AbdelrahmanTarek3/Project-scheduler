@@ -22,6 +22,7 @@ public:
 	void setfile(std::string file);
 	std::string getfile();
 	void detectenter();
+	void printingTImeStep(int time);
 
 
 	void printRDY(PriorityQueue<Processor*>& processors, int TOTALprocessors);

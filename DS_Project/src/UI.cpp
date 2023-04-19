@@ -23,12 +23,9 @@ void UI::startscreen()
 
 	std::cout << "Please enter the input file of your data in the following format (filename.txt): ";
 	std::string filee;
-	// std::cin >> filee;
-	filee = "prc_30.txt";
+	 std::cin >> filee;
 	setfile(filee);
 	
-	//std::cout << "Thanks for your patience,";
-	//std::cout << std::endl << "Your file name is : " << filename << " and the print mode is : ";
 	//if (mode == 1)
 	//{
 	//	std::cout << "Interactive Mode";
@@ -185,4 +182,8 @@ void UI::printProcessorProceesesRDY(Processor* processor)
 		std::cout << pids;
 	}
 	std::cout << std::endl;
+}
+void UI::printingTImeStep(int time)
+{
+	std::cout << "Current Timestep:" << time << std::endl;
 }
